@@ -1,0 +1,12 @@
+# Python gunkage
+*.pyc
+*.egg
+*.egg-info
+.coverage
+.tox
+dist
+build
+MANIFEST
+
+# Documentation stuff
+docs/_build
