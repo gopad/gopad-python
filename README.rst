@@ -1,8 +1,8 @@
 Gopad: SDK for Python
 =====================
 
-.. image:: http://github.dronehippie.de/api/badges/gopad/gopad-python/status.svg
-    :target: http://github.dronehippie.de/gopad/gopad-python
+.. image:: http://drone.gopad.tech/api/badges/gopad/gopad-python/status.svg
+    :target: http://drone.gopad.tech/gopad/gopad-python
 
 .. image:: https://badge.waffle.io/gopad/gopad-api.svg?label=ready&title=Ready
     :target: http://waffle.io/gopad/gopad-api
