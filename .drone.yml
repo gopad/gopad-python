@@ -1,32 +1,56 @@
-workspace:
-  base: /srv/app
-  path: src/github.com/gopad/gopad-python
+---
+kind: pipeline
+name: testing
 
-branches:
-  - master
+platform:
+  os: linux
+  arch: amd64
 
-pipeline:
-  sdk-test:
-    image: webhippie/python:latest
-    pull: true
-    commands:
-      - pip3 install -r dev-requirements.txt
-      - flake8 setup.py gopad tests
-      - nosetests --with-coverage --cover-package gopad -v
+steps:
+- name: test
+  image: webhippie/python:latest
+  pull: always
+  commands:
+  - pip3 install -r dev-requirements.txt
+  - flake8 setup.py gopad tests
+  - nosetests --with-coverage --cover-package gopad -v
 
-  # TODO: do some automated release upload
-  # sdk-release:
-  #   image:
-  #   pull: true
-  #   when:
-  #     event: [ tag ]
-  #     branch: master
+- name: release
+  image: plugins/pypi:1
+  pull: always
+  settings:
+    username:
+      from_secret: pypi_username
+    password:
+      from_secret: pypi_password
+  when:
+    event:
+    - tag
+  depends_on:
+  - test
 
-  notify-matrix:
-    image: plugins/matrix:1
-    pull: true
-    secrets: [ matrix_roomid, matrix_username, matrix_password ]
-    when:
-      local: false
-      event: [ push, tag ]
-      status: [ changed, failure ]
+- name: notify
+  image: plugins/matrix:1
+  pull: always
+  settings:
+    username:
+      from_secret: matrix_username
+    password:
+      from_secret: matrix_password
+    roomid:
+      from_secret: matrix_roomid
+  when:
+    event:
+    - push
+    - tag
+    status:
+    - failure
+  depends_on:
+  - test
+  - release
+
+trigger:
+  ref:
+  - refs/heads/master
+  - refs/tags/**
+  - refs/pull/**
