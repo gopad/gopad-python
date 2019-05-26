@@ -4,12 +4,12 @@ envlist = py3, flake8
 [testenv]
 deps=-r{toxinidir}/test-requirements.txt
 commands =
-    {envbindir}/nosetests -v --with-coverage --cover-xml --cover-package gopad
+    {envbindir}/nosetests -v --with-coverage --cover-xml --cover-package {{{packageName}}}
 
 [testenv:flake8]
 deps = flake8
 commands =
-    flake8 --ignore F401,W504 setup.py gopad test
+    flake8 --ignore F401,W504 setup.py {{{packageName}}} test
 
 [testenv:codacy]
 passenv = CODACY_PROJECT_TOKEN

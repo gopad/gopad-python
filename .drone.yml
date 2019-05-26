@@ -7,13 +7,34 @@ platform:
   arch: amd64
 
 steps:
+- name: flake8
+  image: webhippie/python:latest
+  pull: always
+  environment:
+    PY_COLORS: 1
+  commands:
+  - tox -e flake8
+
 - name: test
   image: webhippie/python:latest
   pull: always
+  environment:
+    PY_COLORS: 1
   commands:
-  - pip3 install -r dev-requirements.txt
-  - flake8 setup.py gopad tests
-  - nosetests --with-coverage --cover-package gopad -v
+  - tox -e py3
+
+- name: codacy
+  image: webhippie/python:latest
+  pull: always
+  environment:
+    PY_COLORS: 1
+    CODACY_PROJECT_TOKEN:
+      from_secret: codacy_token
+  commands:
+  - tox -e codacy
+  when:
+    instance:
+    - cloud.drone.io
 
 - name: release
   image: plugins/pypi:1
@@ -26,8 +47,6 @@ steps:
   when:
     event:
     - tag
-  depends_on:
-  - test
 
 - name: notify
   image: plugins/matrix:1
@@ -45,9 +64,6 @@ steps:
     - tag
     status:
     - failure
-  depends_on:
-  - test
-  - release
 
 trigger:
   ref:
