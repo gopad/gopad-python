@@ -36,37 +36,37 @@ class AuthApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def login_user(self, auth, **kwargs):  # noqa: E501
+    def login_user(self, params, **kwargs):  # noqa: E501
         """Authenticate an user by credentials  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.login_user(auth, async_req=True)
+        >>> thread = api.login_user(params, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param InlineObject auth: (required)
+        :param AuthLogin params: The credentials to authenticate (required)
         :return: AuthToken
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.login_user_with_http_info(auth, **kwargs)  # noqa: E501
+            return self.login_user_with_http_info(params, **kwargs)  # noqa: E501
         else:
-            (data) = self.login_user_with_http_info(auth, **kwargs)  # noqa: E501
+            (data) = self.login_user_with_http_info(params, **kwargs)  # noqa: E501
             return data
 
-    def login_user_with_http_info(self, auth, **kwargs):  # noqa: E501
+    def login_user_with_http_info(self, params, **kwargs):  # noqa: E501
         """Authenticate an user by credentials  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.login_user_with_http_info(auth, async_req=True)
+        >>> thread = api.login_user_with_http_info(params, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param InlineObject auth: (required)
+        :param AuthLogin params: The credentials to authenticate (required)
         :return: AuthToken
                  If the method is called asynchronously,
                  returns the request thread.
@@ -74,7 +74,7 @@ class AuthApi(object):
 
         local_var_params = locals()
 
-        all_params = ['auth']  # noqa: E501
+        all_params = ['params']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -88,10 +88,10 @@ class AuthApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'auth' is set
-        if ('auth' not in local_var_params or
-                local_var_params['auth'] is None):
-            raise ApiValueError("Missing the required parameter `auth` when calling `login_user`")  # noqa: E501
+        # verify the required parameter 'params' is set
+        if ('params' not in local_var_params or
+                local_var_params['params'] is None):
+            raise ApiValueError("Missing the required parameter `params` when calling `login_user`")  # noqa: E501
 
         collection_formats = {}
 
@@ -105,8 +105,8 @@ class AuthApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'auth' in local_var_params:
-            body_params = local_var_params['auth']
+        if 'params' in local_var_params:
+            body_params = local_var_params['params']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501

@@ -46,7 +46,7 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
     def __init__(self):
         """Constructor"""
         # Default Base url
-        self.host = "http://http:/api/v1"
+        self.host = "http://try.gopad.tech/api/v1"
         # Temp file folder for downloading files
         self.temp_folder_path = None
 
@@ -215,6 +215,20 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
         :return: The Auth Settings information dict.
         """
         return {
+            'BasicAuth':
+                {
+                    'type': 'basic',
+                    'in': 'header',
+                    'key': 'Authorization',
+                    'value': self.get_basic_auth_token()
+                },
+            'HeaderAuth':
+                {
+                    'type': 'api_key',
+                    'in': 'header',
+                    'key': 'X-API-Key',
+                    'value': self.get_api_key_with_prefix('X-API-Key')
+                },
         }
 
     def to_debug_report(self):
@@ -236,7 +250,11 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
         """
         return [
             {
-                'url': "///api/v1",
+                'url': "http://try.gopad.tech/api/v1",
+                'description': "No description provided",
+            },
+            {
+                'url': "https://try.gopad.tech/api/v1",
                 'description': "No description provided",
             }
         ]

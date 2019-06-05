@@ -15,12 +15,12 @@ from __future__ import absolute_import
 import unittest
 
 import gopad
-from gopad.models.inline_object import InlineObject  # noqa: E501
+from gopad.models.validation_error import ValidationError  # noqa: E501
 from gopad.rest import ApiException
 
 
-class TestInlineObject(unittest.TestCase):
-    """InlineObject unit test stubs"""
+class TestValidationError(unittest.TestCase):
+    """ValidationError unit test stubs"""
 
     def setUp(self):
         pass
@@ -28,10 +28,10 @@ class TestInlineObject(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testInlineObject(self):
-        """Test InlineObject"""
+    def testValidationError(self):
+        """Test ValidationError"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = gopad.models.inline_object.InlineObject()  # noqa: E501
+        # model = gopad.models.validation_error.ValidationError()  # noqa: E501
         pass
 
 

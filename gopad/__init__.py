@@ -31,13 +31,16 @@ from gopad.exceptions import ApiValueError
 from gopad.exceptions import ApiKeyError
 from gopad.exceptions import ApiException
 # import models into sdk package
+from gopad.models.auth_login import AuthLogin
 from gopad.models.auth_token import AuthToken
 from gopad.models.auth_verify import AuthVerify
-from gopad.models.inline_object import InlineObject
+from gopad.models.general_error import GeneralError
 from gopad.models.profile import Profile
 from gopad.models.team import Team
 from gopad.models.team_user import TeamUser
 from gopad.models.team_user_params import TeamUserParams
 from gopad.models.user import User
 from gopad.models.user_team_params import UserTeamParams
+from gopad.models.validation_error import ValidationError
+from gopad.models.validation_error_errors import ValidationErrorErrors
 

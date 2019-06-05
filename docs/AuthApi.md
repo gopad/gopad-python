@@ -1,6 +1,6 @@
 # gopad.AuthApi
 
-All URIs are relative to *http://http:/api/v1*
+All URIs are relative to *http://try.gopad.tech/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **login_user**
-> AuthToken login_user(auth)
+> AuthToken login_user(params)
 
 Authenticate an user by credentials
 
@@ -25,11 +25,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = gopad.AuthApi()
-auth = gopad.InlineObject() # InlineObject | 
+params = gopad.AuthLogin() # AuthLogin | The credentials to authenticate
 
 try:
     # Authenticate an user by credentials
-    api_response = api_instance.login_user(auth)
+    api_response = api_instance.login_user(params)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AuthApi->login_user: %s\n" % e)
@@ -39,7 +39,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **auth** | [**InlineObject**](InlineObject.md)|  | 
+ **params** | [**AuthLogin**](AuthLogin.md)| The credentials to authenticate | 
 
 ### Return type
 

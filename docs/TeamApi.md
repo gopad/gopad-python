@@ -1,6 +1,6 @@
 # gopad.TeamApi
 
-All URIs are relative to *http://http:/api/v1*
+All URIs are relative to *http://try.gopad.tech/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 
 # **append_team_to_user**
-> object append_team_to_user(team_id, team_user)
+> GeneralError append_team_to_user(team_id, team_user)
 
 Assign a user to team
 
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**GeneralError**](GeneralError.md)
 
 ### Authorization
 
@@ -112,7 +112,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_team**
-> object delete_team(team_id)
+> GeneralError delete_team(team_id)
 
 Delete a specific team
 
@@ -145,7 +145,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**GeneralError**](GeneralError.md)
 
 ### Authorization
 
@@ -159,7 +159,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delte_team_from_user**
-> object delte_team_from_user(team_id, team_user)
+> GeneralError delte_team_from_user(team_id, team_user)
 
 Remove a user from team
 
@@ -194,7 +194,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**GeneralError**](GeneralError.md)
 
 ### Authorization
 
@@ -298,7 +298,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **permit_team_user**
-> object permit_team_user(team_id, team_user)
+> GeneralError permit_team_user(team_id, team_user)
 
 Update user perms for team
 
@@ -333,7 +333,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**GeneralError**](GeneralError.md)
 
 ### Authorization
 
