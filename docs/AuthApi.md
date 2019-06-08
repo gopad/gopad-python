@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **login_user**
-> AuthToken login_user(params)
+> AuthToken login_user(auth_login)
 
 Authenticate an user by credentials
 
@@ -25,11 +25,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = gopad.AuthApi()
-params = gopad.AuthLogin() # AuthLogin | The credentials to authenticate
+auth_login = gopad.AuthLogin() # AuthLogin | The credentials to authenticate
 
 try:
     # Authenticate an user by credentials
-    api_response = api_instance.login_user(params)
+    api_response = api_instance.login_user(auth_login)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AuthApi->login_user: %s\n" % e)
@@ -39,7 +39,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **params** | [**AuthLogin**](AuthLogin.md)| The credentials to authenticate | 
+ **auth_login** | [**AuthLogin**](AuthLogin.md)| The credentials to authenticate | 
 
 ### Return type
 

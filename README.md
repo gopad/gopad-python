@@ -60,11 +60,11 @@ from gopad.rest import ApiException
 
 
 api = gopad.AuthApi(gopad.ApiClient(configuration))
-params = gopad.AuthLogin() # AuthLogin | The credentials to authenticate
+auth_login = gopad.AuthLogin() # AuthLogin | The credentials to authenticate
 
 try:
     # Authenticate an user by credentials
-    resp = api.login_user(params)
+    resp = api.login_user(auth_login)
     pprint(resp)
 except ApiException as e:
     print("Exception when calling AuthApi->login_user: %s\n" % e)
@@ -85,7 +85,7 @@ Class | Method | HTTP request | Description
 *TeamApi* | [**append_team_to_user**](docs/TeamApi.md#append_team_to_user) | **POST** /teams/{team_id}/users | Assign a user to team
 *TeamApi* | [**create_team**](docs/TeamApi.md#create_team) | **POST** /teams | Create a new team
 *TeamApi* | [**delete_team**](docs/TeamApi.md#delete_team) | **DELETE** /teams/{team_id} | Delete a specific team
-*TeamApi* | [**delte_team_from_user**](docs/TeamApi.md#delte_team_from_user) | **DELETE** /teams/{team_id}/users | Remove a user from team
+*TeamApi* | [**delete_team_from_user**](docs/TeamApi.md#delete_team_from_user) | **DELETE** /teams/{team_id}/users | Remove a user from team
 *TeamApi* | [**list_team_users**](docs/TeamApi.md#list_team_users) | **GET** /teams/{team_id}/users | Fetch all users assigned to team
 *TeamApi* | [**list_teams**](docs/TeamApi.md#list_teams) | **GET** /teams | Fetch all available teams
 *TeamApi* | [**permit_team_user**](docs/TeamApi.md#permit_team_user) | **PUT** /teams/{team_id}/users | Update user perms for team

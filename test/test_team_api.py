@@ -49,8 +49,8 @@ class TestTeamApi(unittest.TestCase):
         """
         pass
 
-    def test_delte_team_from_user(self):
-        """Test case for delte_team_from_user
+    def test_delete_team_from_user(self):
+        """Test case for delete_team_from_user
 
         Remove a user from team  # noqa: E501
         """

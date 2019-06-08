@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**append_team_to_user**](TeamApi.md#append_team_to_user) | **POST** /teams/{team_id}/users | Assign a user to team
 [**create_team**](TeamApi.md#create_team) | **POST** /teams | Create a new team
 [**delete_team**](TeamApi.md#delete_team) | **DELETE** /teams/{team_id} | Delete a specific team
-[**delte_team_from_user**](TeamApi.md#delte_team_from_user) | **DELETE** /teams/{team_id}/users | Remove a user from team
+[**delete_team_from_user**](TeamApi.md#delete_team_from_user) | **DELETE** /teams/{team_id}/users | Remove a user from team
 [**list_team_users**](TeamApi.md#list_team_users) | **GET** /teams/{team_id}/users | Fetch all users assigned to team
 [**list_teams**](TeamApi.md#list_teams) | **GET** /teams | Fetch all available teams
 [**permit_team_user**](TeamApi.md#permit_team_user) | **PUT** /teams/{team_id}/users | Update user perms for team
@@ -158,8 +158,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **delte_team_from_user**
-> GeneralError delte_team_from_user(team_id, team_user)
+# **delete_team_from_user**
+> GeneralError delete_team_from_user(team_id, team_user)
 
 Remove a user from team
 
@@ -179,10 +179,10 @@ team_user = gopad.TeamUserParams() # TeamUserParams | The team user data to dele
 
 try:
     # Remove a user from team
-    api_response = api_instance.delte_team_from_user(team_id, team_user)
+    api_response = api_instance.delete_team_from_user(team_id, team_user)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling TeamApi->delte_team_from_user: %s\n" % e)
+    print("Exception when calling TeamApi->delete_team_from_user: %s\n" % e)
 ```
 
 ### Parameters

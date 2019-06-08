@@ -334,12 +334,12 @@ class TeamApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def delte_team_from_user(self, team_id, team_user, **kwargs):  # noqa: E501
+    def delete_team_from_user(self, team_id, team_user, **kwargs):  # noqa: E501
         """Remove a user from team  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delte_team_from_user(team_id, team_user, async_req=True)
+        >>> thread = api.delete_team_from_user(team_id, team_user, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -351,17 +351,17 @@ class TeamApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.delte_team_from_user_with_http_info(team_id, team_user, **kwargs)  # noqa: E501
+            return self.delete_team_from_user_with_http_info(team_id, team_user, **kwargs)  # noqa: E501
         else:
-            (data) = self.delte_team_from_user_with_http_info(team_id, team_user, **kwargs)  # noqa: E501
+            (data) = self.delete_team_from_user_with_http_info(team_id, team_user, **kwargs)  # noqa: E501
             return data
 
-    def delte_team_from_user_with_http_info(self, team_id, team_user, **kwargs):  # noqa: E501
+    def delete_team_from_user_with_http_info(self, team_id, team_user, **kwargs):  # noqa: E501
         """Remove a user from team  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delte_team_from_user_with_http_info(team_id, team_user, async_req=True)
+        >>> thread = api.delete_team_from_user_with_http_info(team_id, team_user, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -384,18 +384,18 @@ class TeamApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method delte_team_from_user" % key
+                    " to method delete_team_from_user" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'team_id' is set
         if ('team_id' not in local_var_params or
                 local_var_params['team_id'] is None):
-            raise ApiValueError("Missing the required parameter `team_id` when calling `delte_team_from_user`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `team_id` when calling `delete_team_from_user`")  # noqa: E501
         # verify the required parameter 'team_user' is set
         if ('team_user' not in local_var_params or
                 local_var_params['team_user'] is None):
-            raise ApiValueError("Missing the required parameter `team_user` when calling `delte_team_from_user`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `team_user` when calling `delete_team_from_user`")  # noqa: E501
 
         collection_formats = {}
 

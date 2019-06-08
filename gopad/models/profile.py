@@ -34,6 +34,7 @@ class Profile(object):
         'id': 'str',
         'slug': 'str',
         'username': 'str',
+        'password': 'str',
         'email': 'str',
         'admin': 'bool',
         'active': 'bool',
@@ -45,6 +46,7 @@ class Profile(object):
         'id': 'id',
         'slug': 'slug',
         'username': 'username',
+        'password': 'password',
         'email': 'email',
         'admin': 'admin',
         'active': 'active',
@@ -52,12 +54,13 @@ class Profile(object):
         'updated_at': 'updated_at'
     }
 
-    def __init__(self, id=None, slug=None, username=None, email=None, admin=None, active=None, created_at=None, updated_at=None):  # noqa: E501
+    def __init__(self, id=None, slug=None, username=None, password=None, email=None, admin=None, active=None, created_at=None, updated_at=None):  # noqa: E501
         """Profile - a model defined in OpenAPI"""  # noqa: E501
 
         self._id = None
         self._slug = None
         self._username = None
+        self._password = None
         self._email = None
         self._admin = None
         self._active = None
@@ -70,6 +73,8 @@ class Profile(object):
         if slug is not None:
             self.slug = slug
         self.username = username
+        if password is not None:
+            self.password = password
         self.email = email
         if admin is not None:
             self.admin = admin
@@ -144,6 +149,27 @@ class Profile(object):
             raise ValueError("Invalid value for `username`, must not be `None`")  # noqa: E501
 
         self._username = username
+
+    @property
+    def password(self):
+        """Gets the password of this Profile.  # noqa: E501
+
+
+        :return: The password of this Profile.  # noqa: E501
+        :rtype: str
+        """
+        return self._password
+
+    @password.setter
+    def password(self, password):
+        """Sets the password of this Profile.
+
+
+        :param password: The password of this Profile.  # noqa: E501
+        :type: str
+        """
+
+        self._password = password
 
     @property
     def email(self):

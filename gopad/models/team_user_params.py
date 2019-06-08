@@ -31,51 +31,24 @@ class TeamUserParams(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'team': 'str',
         'user': 'str',
         'perm': 'str'
     }
 
     attribute_map = {
-        'team': 'team',
         'user': 'user',
         'perm': 'perm'
     }
 
-    def __init__(self, team=None, user=None, perm=None):  # noqa: E501
+    def __init__(self, user=None, perm=None):  # noqa: E501
         """TeamUserParams - a model defined in OpenAPI"""  # noqa: E501
 
-        self._team = None
         self._user = None
         self._perm = None
         self.discriminator = None
 
-        self.team = team
         self.user = user
         self.perm = perm
-
-    @property
-    def team(self):
-        """Gets the team of this TeamUserParams.  # noqa: E501
-
-
-        :return: The team of this TeamUserParams.  # noqa: E501
-        :rtype: str
-        """
-        return self._team
-
-    @team.setter
-    def team(self, team):
-        """Sets the team of this TeamUserParams.
-
-
-        :param team: The team of this TeamUserParams.  # noqa: E501
-        :type: str
-        """
-        if team is None:
-            raise ValueError("Invalid value for `team`, must not be `None`")  # noqa: E501
-
-        self._team = team
 
     @property
     def user(self):
@@ -120,6 +93,12 @@ class TeamUserParams(object):
         """
         if perm is None:
             raise ValueError("Invalid value for `perm`, must not be `None`")  # noqa: E501
+        allowed_values = ["user", "admin", "owner"]  # noqa: E501
+        if perm not in allowed_values:
+            raise ValueError(
+                "Invalid value for `perm` ({0}), must be one of {1}"  # noqa: E501
+                .format(perm, allowed_values)
+            )
 
         self._perm = perm
 

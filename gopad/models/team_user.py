@@ -120,6 +120,12 @@ class TeamUser(object):
         """
         if perm is None:
             raise ValueError("Invalid value for `perm`, must not be `None`")  # noqa: E501
+        allowed_values = ["user", "admin", "owner"]  # noqa: E501
+        if perm not in allowed_values:
+            raise ValueError(
+                "Invalid value for `perm` ({0}), must be one of {1}"  # noqa: E501
+                .format(perm, allowed_values)
+            )
 
         self._perm = perm
 
