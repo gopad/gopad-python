@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Gopad OpenAPI
 
@@ -10,13 +8,11 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
 
 import gopad
-from gopad.models.team_user import TeamUser  # noqa: E501
-from gopad.rest import ApiException
+from gopad.model.team_user import TeamUser
 
 
 class TestTeamUser(unittest.TestCase):
@@ -31,7 +27,7 @@ class TestTeamUser(unittest.TestCase):
     def testTeamUser(self):
         """Test TeamUser"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = gopad.models.team_user.TeamUser()  # noqa: E501
+        # model = TeamUser()  # noqa: E501
         pass
 
 

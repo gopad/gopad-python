@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Gopad OpenAPI
 
@@ -10,13 +8,11 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
 
 import gopad
-from gopad.models.auth_login import AuthLogin  # noqa: E501
-from gopad.rest import ApiException
+from gopad.model.auth_login import AuthLogin
 
 
 class TestAuthLogin(unittest.TestCase):
@@ -31,7 +27,7 @@ class TestAuthLogin(unittest.TestCase):
     def testAuthLogin(self):
         """Test AuthLogin"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = gopad.models.auth_login.AuthLogin()  # noqa: E501
+        # model = AuthLogin()  # noqa: E501
         pass
 
 

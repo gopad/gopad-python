@@ -1,0 +1,21 @@
+---
+name: general
+
+"on":
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  testing:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout source
+        id: source
+        uses: actions/checkout@v3
+
+...

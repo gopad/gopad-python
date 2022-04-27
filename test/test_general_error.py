@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Gopad OpenAPI
 
@@ -10,13 +8,11 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
 
 import gopad
-from gopad.models.general_error import GeneralError  # noqa: E501
-from gopad.rest import ApiException
+from gopad.model.general_error import GeneralError
 
 
 class TestGeneralError(unittest.TestCase):
@@ -31,7 +27,7 @@ class TestGeneralError(unittest.TestCase):
     def testGeneralError(self):
         """Test GeneralError"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = gopad.models.general_error.GeneralError()  # noqa: E501
+        # model = GeneralError()  # noqa: E501
         pass
 
 

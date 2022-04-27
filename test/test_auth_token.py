@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Gopad OpenAPI
 
@@ -10,13 +8,11 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
 
 import gopad
-from gopad.models.auth_token import AuthToken  # noqa: E501
-from gopad.rest import ApiException
+from gopad.model.auth_token import AuthToken
 
 
 class TestAuthToken(unittest.TestCase):
@@ -31,7 +27,7 @@ class TestAuthToken(unittest.TestCase):
     def testAuthToken(self):
         """Test AuthToken"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = gopad.models.auth_token.AuthToken()  # noqa: E501
+        # model = AuthToken()  # noqa: E501
         pass
 
 

@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Gopad OpenAPI
 
@@ -10,20 +8,17 @@
 """
 
 
-from __future__ import absolute_import
-
 import unittest
 
 import gopad
 from gopad.api.profile_api import ProfileApi  # noqa: E501
-from gopad.rest import ApiException
 
 
 class TestProfileApi(unittest.TestCase):
     """ProfileApi unit test stubs"""
 
     def setUp(self):
-        self.api = gopad.api.profile_api.ProfileApi()  # noqa: E501
+        self.api = ProfileApi()  # noqa: E501
 
     def tearDown(self):
         pass

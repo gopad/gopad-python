@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Gopad OpenAPI
 
@@ -10,13 +8,11 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
 
 import gopad
-from gopad.models.profile import Profile  # noqa: E501
-from gopad.rest import ApiException
+from gopad.model.profile import Profile
 
 
 class TestProfile(unittest.TestCase):
@@ -31,7 +27,7 @@ class TestProfile(unittest.TestCase):
     def testProfile(self):
         """Test Profile"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = gopad.models.profile.Profile()  # noqa: E501
+        # model = Profile()  # noqa: E501
         pass
 
 

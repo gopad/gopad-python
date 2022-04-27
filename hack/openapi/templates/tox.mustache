@@ -1,18 +1,30 @@
 [tox]
-envlist = py3, flake8
+envlist = py3, build, format, lint
 
 [testenv]
-deps=-r{toxinidir}/test-requirements.txt
+deps=
+    -r{toxinidir}/requirements.txt
+    -r{toxinidir}/test-requirements.txt
 commands =
-    {envbindir}/nosetests -v --with-coverage --cover-xml --cover-package {{{packageName}}}
+   {{^useNose}}pytest --cov={{{packageName}}}{{/useNose}}{{#useNose}}nosetests{{/useNose}}
 
-[testenv:flake8]
-deps = flake8
+[testenv:build]
+basepython = python3
+deps =
+    -r{toxinidir}/requirements.txt
 commands =
-    flake8 --ignore F401,W504 setup.py {{{packageName}}} test
+    python3 setup.py sdist bdist_wheel
 
-[testenv:codacy]
-passenv = CODACY_PROJECT_TOKEN
-deps = codacy-coverage
+[testenv:format]
+basepython = python3
+deps =
+    black
 commands =
-    python-codacy-coverage -r coverage.xml
+    black setup.py {{{packageName}}} test
+
+[testenv:lint]
+basepython = python3
+deps =
+    black
+commands =
+    black --check --diff setup.py {{{packageName}}} test

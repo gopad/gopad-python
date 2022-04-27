@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Gopad OpenAPI
 
@@ -10,20 +8,17 @@
 """
 
 
-from __future__ import absolute_import
-
 import unittest
 
 import gopad
 from gopad.api.auth_api import AuthApi  # noqa: E501
-from gopad.rest import ApiException
 
 
 class TestAuthApi(unittest.TestCase):
     """AuthApi unit test stubs"""
 
     def setUp(self):
-        self.api = gopad.api.auth_api.AuthApi()  # noqa: E501
+        self.api = AuthApi()  # noqa: E501
 
     def tearDown(self):
         pass
