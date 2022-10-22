@@ -1,8 +1,0 @@
----
-library: urllib3
-packageName: gopad
-packageUrl: https://github.com/gopad/gopad-python
-packageVersion: 1.0.0-alpha1
-projectName: gopad
-
-...
