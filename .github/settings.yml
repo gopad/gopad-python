@@ -3,7 +3,7 @@ repository:
   name: gopad-python
   description: "Gopad: SDK for Python"
   homepage: https://gopad.eu
-  topics: gopad, etherpad, sdk, openapi, python
+  topics: gopad, etherpad, sdk, client, grpc, python
 
   private: false
   has_issues: true
