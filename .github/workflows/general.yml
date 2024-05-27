@@ -41,7 +41,7 @@ jobs:
       #   run: poetry run ruff check ./gopad
 
       - name: Run test
-        run: poetry run test
+        run: poetry run pytest
 
       - name: Run build
         run: poetry build
