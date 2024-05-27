@@ -42,7 +42,7 @@ else
         docker.io/openapitools/openapi-generator-cli:v7.6.0 \
         generate \
         -c /generate/openapi.yml \
-        -g typescript-axios \
+        -g python \
         --git-repo-id gopad-python \
         --git-user-id gopad \
         --http-user-agent "gopad-python/${SPEC_VERSION}" \

@@ -28,16 +28,7 @@
         "aarch64-darwin"
       ];
 
-      perSystem = { config, self', inputs', pkgs, system, ... }:
-      let
-        python312 = pkgs.python312.withPackages (p: with p; [
-          peotry
-          poetry-dynamic-versioning
-        ]);
-
-      in
-
-      {
+      perSystem = { config, self', inputs', pkgs, system, ... }: {
         imports = [
           {
             _module.args.pkgs = import inputs.nixpkgs {
@@ -53,7 +44,12 @@
               languages = {
                 python = {
                   enable = true;
-                  package = python312;
+                  package = pkgs.python312;
+
+                  poetry = {
+                    enable = true;
+                    package = pkgs.poetry;
+                  };
                 };
               };
 
