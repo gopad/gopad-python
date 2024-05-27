@@ -15,3 +15,13 @@ sed \
     -i \
     "s|packageVersion: .*|packageVersion: ${VERSION}|" \
     "${ROOT}/openapi.yml"
+
+sed \
+    -i \
+    "s|version = \".*\"|version = \"${VERSION}\"|" \
+    "${ROOT}/openapi.yml"
+
+
+
+
+
