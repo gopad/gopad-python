@@ -51,15 +51,9 @@ pydantic = ">=2"
 typing-extensions = ">=4.7.1"
 
 [tool.poetry.group.dev.dependencies]
-ruff = "0.4.5"
 pytest = ">=7.2.1"
 types-python-dateutil = ">=2.8.19.14"
-build = "1.1.1"
-
-[tool.poetry-dynamic-versioning]
-enable = true
-style = "semver"
-vcs = "git"
+build = ">=1.1.1"
 
 [tool.pytest.ini_options]
 addopts = "test/"
@@ -70,62 +64,5 @@ filterwarnings = [
 ]
 
 [build-system]
-build-backend = "poetry_dynamic_versioning.backend"
-requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning"]
-
-[tool.ruff]
-exclude = [
-  ".direnv",
-  ".devenv",
-  ".git",
-  "__pycache__",
-  "build",
-  "dist",
-  "test",
-  "*.pyc",
-  "*.egg-info",
-  ".cache",
-  ".eggs",
-  "venv",
-]
-
-line-length = 120
-indent-width = 4
-
-[tool.ruff.lint]
-ignore = [
-  "D205",
-  "D400",
-  "D401",
-  "D415",
-]
-
-select = [
-  "D",
-  "E",
-  "F",
-  "Q",
-  "W",
-  "I",
-  "S",
-  "BLE",
-  "N",
-  "UP",
-  "B",
-  "A",
-  "C4",
-  "T20",
-  "SIM",
-  "RET",
-  "ARG",
-  "ERA",
-  "RUF",
-]
-
-fixable = ["ALL"]
-unfixable = []
-
-[tool.ruff.format]
-quote-style = "double"
-indent-style = "space"
-line-ending = "lf"
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -34,12 +34,6 @@ jobs:
       - name: Run install
         run: poetry install
 
-      # - name: Run format
-      #   run: poetry run ruff format --check --diff ./gopad
-
-      # - name: Run coding
-      #   run: poetry run ruff check ./gopad
-
       - name: Run test
         run: poetry run pytest
 
