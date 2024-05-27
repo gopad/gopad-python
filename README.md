@@ -17,24 +17,12 @@ Python 3.7+
 
 ## Installation
 
-### Installation with Pip
-
 If you want to use one of the versions released via PyPi you just need to
 execute the following command within your project directory, after that you can
 import it as other libraries:
 
 ```console
 pip install gopad@0.0.0
-```
-
-### Installation with Setuptools
-
-If you want to use an unreleased version hosted on our GitHub repository you can
-execute the folling command within the root folder of this repository base on
-[Setuptools][setuptools], after that you can import it as other libraries:
-
-```console
-python setup.py install --user
 ```
 
 ## Tests
