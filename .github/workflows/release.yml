@@ -1,0 +1,54 @@
+---
+name: release
+
+"on":
+  workflow_dispatch:
+  schedule:
+    - cron: "0 8 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.BOT_ACCESS_TOKEN }}
+
+      - name: Setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install generator
+        run: npm install @openapitools/openapi-generator-cli -g
+
+      - name: Semantic release
+        uses: cycjimmy/semantic-release-action@v3
+        env:
+          GITHUB_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
+          PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
+        with:
+          extra_plugins: |
+            semantic-release-pypi
+            @semantic-release/exec
+            conventional-changelog-conventionalcommits@6.1.0
+
+      - name: Write buildtime
+        run: date >| .github/RELEASE
+
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: GitHub Actions
+          author_email: github@webhippie.de
+          add: .github/RELEASE
+          message: "docs: automated release update [skip ci]"
+          push: true
+          commit: --signoff
+
+...
