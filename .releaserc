@@ -110,9 +110,90 @@
             }
         ],
         [
-            "@semantic-release/exec",
+            "semantic-release-replace-plugin",
             {
-                "prepareCmd": "./hack/semantic-version.sh ${nextRelease.version} && ./hack/generate-client.sh"
+                "replacements": [
+                    {
+                        "files": [
+                            "openapi.yml"
+                        ],
+                        "from": "packageVersion: .*",
+                        "to": "packageVersion: ${nextRelease.version}",
+                        "results": [
+                            {
+                                "file": "openapi.yml",
+                                "hasChanged": true,
+                                "numMatches": 1,
+                                "numReplacements": 1
+                            }
+                        ],
+                        "countMatches": true
+                    },
+                    {
+                        "files": [
+                            "README.md"
+                        ],
+                        "from": "Package version: .*",
+                        "to": "Package version: ${nextRelease.version}",
+                        "results": [
+                            {
+                                "file": "README.md",
+                                "hasChanged": true,
+                                "numMatches": 1,
+                                "numReplacements": 1
+                            }
+                        ],
+                        "countMatches": true
+                    },
+                    {
+                        "files": [
+                            "README.md"
+                        ],
+                        "from": "gopad@.*",
+                        "to": "gopad@${nextRelease.version}",
+                        "results": [
+                            {
+                                "file": "README.md",
+                                "hasChanged": true,
+                                "numMatches": 1,
+                                "numReplacements": 1
+                            }
+                        ],
+                        "countMatches": true
+                    },
+                    {
+                        "files": [
+                            "gopad/__init__.py"
+                        ],
+                        "from": "__version__ = \".*\"",
+                        "to": "__version__ = \"${nextRelease.version}\"",
+                        "results": [
+                            {
+                                "file": "gopad/__init__.py",
+                                "hasChanged": true,
+                                "numMatches": 1,
+                                "numReplacements": 1
+                            }
+                        ],
+                        "countMatches": true
+                    },
+                    {
+                        "files": [
+                            "gopad/configuration.py"
+                        ],
+                        "from": "SDK Package Version: .*\"",
+                        "to": "SDK Package Version: ${nextRelease.version}\"",
+                        "results": [
+                            {
+                                "file": "gopad/configuration.py",
+                                "hasChanged": true,
+                                "numMatches": 1,
+                                "numReplacements": 1
+                            }
+                        ],
+                        "countMatches": true
+                    }
+                ]
             }
         ],
         [
@@ -126,13 +207,12 @@
             {
                 "message": "chore: release ${nextRelease.version}",
                 "assets": [
-                    "pyproject.toml",
                     "CHANGELOG.md",
-                    "README.md",
+                    "pyproject.toml",
                     "openapi.yml",
-                    "docs/*",
-                    "gopad/*",
-                    "test/*"
+                    "README.md",
+                    "gopad/__init__.py",
+                    "gopad/configuration.py"
                 ]
             }
         ],
@@ -140,7 +220,7 @@
             "@semantic-release/github",
             {
                 "publish": true,
-                "assets": "dist/*"
+                "assets": "dist/*.tgz"
             }
         ]
     ]
