@@ -149,8 +149,8 @@
                         "files": [
                             "README.md"
                         ],
-                        "from": "gopad@.*",
-                        "to": "gopad@${nextRelease.version}",
+                        "from": "pip install gopad@.*",
+                        "to": "pip install gopad@${nextRelease.version}",
                         "results": [
                             {
                                 "file": "README.md",
