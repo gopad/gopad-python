@@ -19,33 +19,18 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
-class UserTeam(BaseModel):
+class AuthVerify(BaseModel):
     """
-    Model to represent user team
+    AuthVerify
     """ # noqa: E501
-    user_id: StrictStr
-    user: Optional[User] = None
-    team_id: StrictStr
-    team: Optional[Team] = None
-    perm: Optional[StrictStr] = 'user'
+    username: StrictStr
     created_at: Optional[datetime] = None
-    updated_at: Optional[datetime] = None
-    __properties: ClassVar[List[str]] = ["user_id", "user", "team_id", "team", "perm", "created_at", "updated_at"]
-
-    @field_validator('perm')
-    def perm_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['user', 'admin', 'owner']):
-            raise ValueError("must be one of enum values ('user', 'admin', 'owner')")
-        return value
+    __properties: ClassVar[List[str]] = ["username", "created_at"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -65,7 +50,7 @@ class UserTeam(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of UserTeam from a JSON string"""
+        """Create an instance of AuthVerify from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -81,8 +66,8 @@ class UserTeam(BaseModel):
         * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
+            "username",
             "created_at",
-            "updated_at",
         ])
 
         _dict = self.model_dump(
@@ -90,17 +75,16 @@ class UserTeam(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of user
-        if self.user:
-            _dict['user'] = self.user.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of team
-        if self.team:
-            _dict['team'] = self.team.to_dict()
+        # set to None if created_at (nullable) is None
+        # and model_fields_set contains the field
+        if self.created_at is None and "created_at" in self.model_fields_set:
+            _dict['created_at'] = None
+
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of UserTeam from a dict"""
+        """Create an instance of AuthVerify from a dict"""
         if obj is None:
             return None
 
@@ -108,18 +92,9 @@ class UserTeam(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "user_id": obj.get("user_id"),
-            "user": User.from_dict(obj["user"]) if obj.get("user") is not None else None,
-            "team_id": obj.get("team_id"),
-            "team": Team.from_dict(obj["team"]) if obj.get("team") is not None else None,
-            "perm": obj.get("perm") if obj.get("perm") is not None else 'user',
-            "created_at": obj.get("created_at"),
-            "updated_at": obj.get("updated_at")
+            "username": obj.get("username"),
+            "created_at": obj.get("created_at")
         })
         return _obj
 
-from gopad.models.team import Team
-from gopad.models.user import User
-# TODO: Rewrite to not use raise_errors
-UserTeam.model_rebuild(raise_errors=False)
 

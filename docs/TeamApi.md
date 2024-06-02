@@ -25,6 +25,7 @@ Assign a user to team
 * Api Key Authentication (Cookie):
 * Basic Authentication (Basic):
 * Api Key Authentication (Header):
+* Bearer Authentication (Bearer):
 
 ```python
 import gopad
@@ -62,6 +63,11 @@ configuration.api_key['Header'] = os.environ["API_KEY"]
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Header'] = 'Bearer'
 
+# Configure Bearer authorization: Bearer
+configuration = gopad.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
 # Enter a context with an instance of the API client
 with gopad.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -94,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Cookie](../README.md#Cookie), [Basic](../README.md#Basic), [Header](../README.md#Header)
+[Cookie](../README.md#Cookie), [Basic](../README.md#Basic), [Header](../README.md#Header), [Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -125,6 +131,7 @@ Create a new team
 * Api Key Authentication (Cookie):
 * Basic Authentication (Basic):
 * Api Key Authentication (Header):
+* Bearer Authentication (Bearer):
 
 ```python
 import gopad
@@ -161,6 +168,11 @@ configuration.api_key['Header'] = os.environ["API_KEY"]
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Header'] = 'Bearer'
 
+# Configure Bearer authorization: Bearer
+configuration = gopad.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
 # Enter a context with an instance of the API client
 with gopad.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -191,7 +203,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Cookie](../README.md#Cookie), [Basic](../README.md#Basic), [Header](../README.md#Header)
+[Cookie](../README.md#Cookie), [Basic](../README.md#Basic), [Header](../README.md#Header), [Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -220,6 +232,7 @@ Delete a specific team
 * Api Key Authentication (Cookie):
 * Basic Authentication (Basic):
 * Api Key Authentication (Header):
+* Bearer Authentication (Bearer):
 
 ```python
 import gopad
@@ -256,6 +269,11 @@ configuration.api_key['Header'] = os.environ["API_KEY"]
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Header'] = 'Bearer'
 
+# Configure Bearer authorization: Bearer
+configuration = gopad.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
 # Enter a context with an instance of the API client
 with gopad.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -286,7 +304,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Cookie](../README.md#Cookie), [Basic](../README.md#Basic), [Header](../README.md#Header)
+[Cookie](../README.md#Cookie), [Basic](../README.md#Basic), [Header](../README.md#Header), [Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -316,6 +334,7 @@ Remove a user from team
 * Api Key Authentication (Cookie):
 * Basic Authentication (Basic):
 * Api Key Authentication (Header):
+* Bearer Authentication (Bearer):
 
 ```python
 import gopad
@@ -353,6 +372,11 @@ configuration.api_key['Header'] = os.environ["API_KEY"]
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Header'] = 'Bearer'
 
+# Configure Bearer authorization: Bearer
+configuration = gopad.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
 # Enter a context with an instance of the API client
 with gopad.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -385,7 +409,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Cookie](../README.md#Cookie), [Basic](../README.md#Basic), [Header](../README.md#Header)
+[Cookie](../README.md#Cookie), [Basic](../README.md#Basic), [Header](../README.md#Header), [Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -415,6 +439,7 @@ Fetch all users assigned to team
 * Api Key Authentication (Cookie):
 * Basic Authentication (Basic):
 * Api Key Authentication (Header):
+* Bearer Authentication (Bearer):
 
 ```python
 import gopad
@@ -451,16 +476,21 @@ configuration.api_key['Header'] = os.environ["API_KEY"]
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Header'] = 'Bearer'
 
+# Configure Bearer authorization: Bearer
+configuration = gopad.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
 # Enter a context with an instance of the API client
 with gopad.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gopad.TeamApi(api_client)
     team_id = 'team_id_example' # str | A team identifier or slug
     search = 'search_example' # str | Search query (optional)
-    sort = 'sort_example' # str | Sorting column (optional)
-    order = 'order_example' # str | Sorting order (optional)
-    limit = 56 # int | Paging limit (optional)
-    offset = 56 # int | Paging offset (optional)
+    sort = 'username' # str | Sorting column (optional) (default to 'username')
+    order = 'asc' # str | Sorting order (optional) (default to 'asc')
+    limit = 100 # int | Paging limit (optional) (default to 100)
+    offset = 0 # int | Paging offset (optional) (default to 0)
 
     try:
         # Fetch all users assigned to team
@@ -480,10 +510,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **team_id** | **str**| A team identifier or slug | 
  **search** | **str**| Search query | [optional] 
- **sort** | **str**| Sorting column | [optional] 
- **order** | **str**| Sorting order | [optional] 
- **limit** | **int**| Paging limit | [optional] 
- **offset** | **int**| Paging offset | [optional] 
+ **sort** | **str**| Sorting column | [optional] [default to &#39;username&#39;]
+ **order** | **str**| Sorting order | [optional] [default to &#39;asc&#39;]
+ **limit** | **int**| Paging limit | [optional] [default to 100]
+ **offset** | **int**| Paging offset | [optional] [default to 0]
 
 ### Return type
 
@@ -491,7 +521,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Cookie](../README.md#Cookie), [Basic](../README.md#Basic), [Header](../README.md#Header)
+[Cookie](../README.md#Cookie), [Basic](../README.md#Basic), [Header](../README.md#Header), [Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -520,6 +550,7 @@ Fetch all available teams
 * Api Key Authentication (Cookie):
 * Basic Authentication (Basic):
 * Api Key Authentication (Header):
+* Bearer Authentication (Bearer):
 
 ```python
 import gopad
@@ -556,15 +587,20 @@ configuration.api_key['Header'] = os.environ["API_KEY"]
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Header'] = 'Bearer'
 
+# Configure Bearer authorization: Bearer
+configuration = gopad.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
 # Enter a context with an instance of the API client
 with gopad.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gopad.TeamApi(api_client)
     search = 'search_example' # str | Search query (optional)
-    sort = 'sort_example' # str | Sorting column (optional)
-    order = 'order_example' # str | Sorting order (optional)
-    limit = 56 # int | Paging limit (optional)
-    offset = 56 # int | Paging offset (optional)
+    sort = 'name' # str | Sorting column (optional) (default to 'name')
+    order = 'asc' # str | Sorting order (optional) (default to 'asc')
+    limit = 100 # int | Paging limit (optional) (default to 100)
+    offset = 0 # int | Paging offset (optional) (default to 0)
 
     try:
         # Fetch all available teams
@@ -583,10 +619,10 @@ with gopad.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **search** | **str**| Search query | [optional] 
- **sort** | **str**| Sorting column | [optional] 
- **order** | **str**| Sorting order | [optional] 
- **limit** | **int**| Paging limit | [optional] 
- **offset** | **int**| Paging offset | [optional] 
+ **sort** | **str**| Sorting column | [optional] [default to &#39;name&#39;]
+ **order** | **str**| Sorting order | [optional] [default to &#39;asc&#39;]
+ **limit** | **int**| Paging limit | [optional] [default to 100]
+ **offset** | **int**| Paging offset | [optional] [default to 0]
 
 ### Return type
 
@@ -594,7 +630,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Cookie](../README.md#Cookie), [Basic](../README.md#Basic), [Header](../README.md#Header)
+[Cookie](../README.md#Cookie), [Basic](../README.md#Basic), [Header](../README.md#Header), [Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -622,6 +658,7 @@ Update user perms for team
 * Api Key Authentication (Cookie):
 * Basic Authentication (Basic):
 * Api Key Authentication (Header):
+* Bearer Authentication (Bearer):
 
 ```python
 import gopad
@@ -659,6 +696,11 @@ configuration.api_key['Header'] = os.environ["API_KEY"]
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Header'] = 'Bearer'
 
+# Configure Bearer authorization: Bearer
+configuration = gopad.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
 # Enter a context with an instance of the API client
 with gopad.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -691,7 +733,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Cookie](../README.md#Cookie), [Basic](../README.md#Basic), [Header](../README.md#Header)
+[Cookie](../README.md#Cookie), [Basic](../README.md#Basic), [Header](../README.md#Header), [Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -722,6 +764,7 @@ Fetch a specific team
 * Api Key Authentication (Cookie):
 * Basic Authentication (Basic):
 * Api Key Authentication (Header):
+* Bearer Authentication (Bearer):
 
 ```python
 import gopad
@@ -757,6 +800,11 @@ configuration.api_key['Header'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Header'] = 'Bearer'
+
+# Configure Bearer authorization: Bearer
+configuration = gopad.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
 
 # Enter a context with an instance of the API client
 with gopad.ApiClient(configuration) as api_client:
@@ -788,7 +836,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Cookie](../README.md#Cookie), [Basic](../README.md#Basic), [Header](../README.md#Header)
+[Cookie](../README.md#Cookie), [Basic](../README.md#Basic), [Header](../README.md#Header), [Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -817,6 +865,7 @@ Update a specific team
 * Api Key Authentication (Cookie):
 * Basic Authentication (Basic):
 * Api Key Authentication (Header):
+* Bearer Authentication (Bearer):
 
 ```python
 import gopad
@@ -852,6 +901,11 @@ configuration.api_key['Header'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Header'] = 'Bearer'
+
+# Configure Bearer authorization: Bearer
+configuration = gopad.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
 
 # Enter a context with an instance of the API client
 with gopad.ApiClient(configuration) as api_client:
@@ -885,7 +939,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Cookie](../README.md#Cookie), [Basic](../README.md#Basic), [Header](../README.md#Header)
+[Cookie](../README.md#Cookie), [Basic](../README.md#Basic), [Header](../README.md#Header), [Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 

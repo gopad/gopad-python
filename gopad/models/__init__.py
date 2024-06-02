@@ -15,7 +15,11 @@
 
 
 # import models into model package
+from gopad.models.auth_login import AuthLogin
+from gopad.models.auth_token import AuthToken
+from gopad.models.auth_verify import AuthVerify
 from gopad.models.notification import Notification
+from gopad.models.profile import Profile
 from gopad.models.team import Team
 from gopad.models.team_user_params import TeamUserParams
 from gopad.models.team_users import TeamUsers

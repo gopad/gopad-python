@@ -7,7 +7,7 @@ Parameters to attach or remove team user
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **user** | **str** |  | 
-**perm** | **str** |  | [optional] 
+**perm** | **str** |  | [optional] [default to 'user']
 
 ## Example
 

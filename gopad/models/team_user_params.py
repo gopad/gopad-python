@@ -28,7 +28,7 @@ class TeamUserParams(BaseModel):
     Parameters to attach or remove team user
     """ # noqa: E501
     user: StrictStr
-    perm: Optional[StrictStr] = None
+    perm: Optional[StrictStr] = 'user'
     __properties: ClassVar[List[str]] = ["user", "perm"]
 
     @field_validator('perm')
@@ -93,7 +93,7 @@ class TeamUserParams(BaseModel):
 
         _obj = cls.model_validate({
             "user": obj.get("user"),
-            "perm": obj.get("perm")
+            "perm": obj.get("perm") if obj.get("perm") is not None else 'user'
         })
         return _obj
 

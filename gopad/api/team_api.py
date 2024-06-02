@@ -323,7 +323,8 @@ class TeamApi:
         _auth_settings: List[str] = [
             'Cookie', 
             'Basic', 
-            'Header'
+            'Header', 
+            'Bearer'
         ]
 
         return self.api_client.param_serialize(
@@ -602,7 +603,8 @@ class TeamApi:
         _auth_settings: List[str] = [
             'Cookie', 
             'Basic', 
-            'Header'
+            'Header', 
+            'Bearer'
         ]
 
         return self.api_client.param_serialize(
@@ -871,7 +873,8 @@ class TeamApi:
         _auth_settings: List[str] = [
             'Cookie', 
             'Basic', 
-            'Header'
+            'Header', 
+            'Bearer'
         ]
 
         return self.api_client.param_serialize(
@@ -1168,7 +1171,8 @@ class TeamApi:
         _auth_settings: List[str] = [
             'Cookie', 
             'Basic', 
-            'Header'
+            'Header', 
+            'Bearer'
         ]
 
         return self.api_client.param_serialize(
@@ -1519,7 +1523,8 @@ class TeamApi:
         _auth_settings: List[str] = [
             'Cookie', 
             'Basic', 
-            'Header'
+            'Header', 
+            'Bearer'
         ]
 
         return self.api_client.param_serialize(
@@ -1852,7 +1857,8 @@ class TeamApi:
         _auth_settings: List[str] = [
             'Cookie', 
             'Basic', 
-            'Header'
+            'Header', 
+            'Bearer'
         ]
 
         return self.api_client.param_serialize(
@@ -2152,7 +2158,8 @@ class TeamApi:
         _auth_settings: List[str] = [
             'Cookie', 
             'Basic', 
-            'Header'
+            'Header', 
+            'Bearer'
         ]
 
         return self.api_client.param_serialize(
@@ -2418,7 +2425,8 @@ class TeamApi:
         _auth_settings: List[str] = [
             'Cookie', 
             'Basic', 
-            'Header'
+            'Header', 
+            'Bearer'
         ]
 
         return self.api_client.param_serialize(
@@ -2715,7 +2723,8 @@ class TeamApi:
         _auth_settings: List[str] = [
             'Cookie', 
             'Basic', 
-            'Header'
+            'Header', 
+            'Bearer'
         ]
 
         return self.api_client.param_serialize(

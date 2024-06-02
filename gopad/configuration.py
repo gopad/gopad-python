@@ -396,15 +396,6 @@ conf = gopad.Configuration(
         :return: The Auth Settings information dict.
         """
         auth = {}
-        if 'Cookie' in self.api_key:
-            auth['Cookie'] = {
-                'type': 'api_key',
-                'in': 'header',
-                'key': 'Cookie',
-                'value': self.get_api_key_with_prefix(
-                    'Cookie',
-                ),
-            }
         if 'Header' in self.api_key:
             auth['Header'] = {
                 'type': 'api_key',
@@ -414,12 +405,28 @@ conf = gopad.Configuration(
                     'Header',
                 ),
             }
+        if self.access_token is not None:
+            auth['Bearer'] = {
+                'type': 'bearer',
+                'in': 'header',
+                'key': 'Authorization',
+                'value': 'Bearer ' + self.access_token
+            }
         if self.username is not None and self.password is not None:
             auth['Basic'] = {
                 'type': 'basic',
                 'in': 'header',
                 'key': 'Authorization',
                 'value': self.get_basic_auth_token()
+            }
+        if 'Cookie' in self.api_key:
+            auth['Cookie'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'Cookie',
+                'value': self.get_api_key_with_prefix(
+                    'Cookie',
+                ),
             }
         return auth
 

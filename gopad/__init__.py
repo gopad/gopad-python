@@ -19,6 +19,7 @@ __version__ = "1.0.0"
 
 # import apis into sdk package
 from gopad.api.auth_api import AuthApi
+from gopad.api.profile_api import ProfileApi
 from gopad.api.team_api import TeamApi
 from gopad.api.user_api import UserApi
 
@@ -34,7 +35,11 @@ from gopad.exceptions import ApiAttributeError
 from gopad.exceptions import ApiException
 
 # import models into sdk package
+from gopad.models.auth_login import AuthLogin
+from gopad.models.auth_token import AuthToken
+from gopad.models.auth_verify import AuthVerify
 from gopad.models.notification import Notification
+from gopad.models.profile import Profile
 from gopad.models.team import Team
 from gopad.models.team_user_params import TeamUserParams
 from gopad.models.team_users import TeamUsers

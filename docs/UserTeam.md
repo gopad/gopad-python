@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **user** | [**User**](User.md) |  | [optional] 
 **team_id** | **str** |  | 
 **team** | [**Team**](Team.md) |  | [optional] 
-**perm** | **str** |  | [optional] 
+**perm** | **str** |  | [optional] [default to 'user']
 **created_at** | **datetime** |  | [optional] [readonly] 
 **updated_at** | **datetime** |  | [optional] [readonly] 
 
