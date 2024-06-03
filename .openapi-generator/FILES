@@ -50,8 +50,3 @@ gopad/models/validation.py
 gopad/py.typed
 gopad/rest.py
 test/__init__.py
-test/test_auth_login.py
-test/test_auth_token.py
-test/test_auth_verify.py
-test/test_profile.py
-test/test_profile_api.py
