@@ -25,7 +25,7 @@ from typing_extensions import Self
 
 class UserTeamParams(BaseModel):
     """
-    Parameters to attach or remove user team
+    Parameters to attach or unlink user team
     """ # noqa: E501
     team: StrictStr
     perm: Optional[StrictStr] = 'user'

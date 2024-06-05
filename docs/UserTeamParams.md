@@ -1,6 +1,6 @@
 # UserTeamParams
 
-Parameters to attach or remove user team
+Parameters to attach or unlink user team
 
 ## Properties
 

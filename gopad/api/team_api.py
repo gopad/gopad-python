@@ -62,7 +62,7 @@ class TeamApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Notification:
-        """Assign a user to team
+        """Attach a user to team
 
 
         :param team_id: A team identifier or slug (required)
@@ -137,7 +137,7 @@ class TeamApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Notification]:
-        """Assign a user to team
+        """Attach a user to team
 
 
         :param team_id: A team identifier or slug (required)
@@ -212,7 +212,7 @@ class TeamApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Assign a user to team
+        """Attach a user to team
 
 
         :param team_id: A team identifier or slug (required)
@@ -899,7 +899,7 @@ class TeamApi:
     def delete_team_from_user(
         self,
         team_id: Annotated[StrictStr, Field(description="A team identifier or slug")],
-        team_user_params: Annotated[TeamUserParams, Field(description="The team user data to delete")],
+        team_user_params: Annotated[TeamUserParams, Field(description="The team user data to unlink")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -913,12 +913,12 @@ class TeamApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Notification:
-        """Remove a user from team
+        """Unlink a user from team
 
 
         :param team_id: A team identifier or slug (required)
         :type team_id: str
-        :param team_user_params: The team user data to delete (required)
+        :param team_user_params: The team user data to unlink (required)
         :type team_user_params: TeamUserParams
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -973,7 +973,7 @@ class TeamApi:
     def delete_team_from_user_with_http_info(
         self,
         team_id: Annotated[StrictStr, Field(description="A team identifier or slug")],
-        team_user_params: Annotated[TeamUserParams, Field(description="The team user data to delete")],
+        team_user_params: Annotated[TeamUserParams, Field(description="The team user data to unlink")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -987,12 +987,12 @@ class TeamApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Notification]:
-        """Remove a user from team
+        """Unlink a user from team
 
 
         :param team_id: A team identifier or slug (required)
         :type team_id: str
-        :param team_user_params: The team user data to delete (required)
+        :param team_user_params: The team user data to unlink (required)
         :type team_user_params: TeamUserParams
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1047,7 +1047,7 @@ class TeamApi:
     def delete_team_from_user_without_preload_content(
         self,
         team_id: Annotated[StrictStr, Field(description="A team identifier or slug")],
-        team_user_params: Annotated[TeamUserParams, Field(description="The team user data to delete")],
+        team_user_params: Annotated[TeamUserParams, Field(description="The team user data to unlink")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1061,12 +1061,12 @@ class TeamApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Remove a user from team
+        """Unlink a user from team
 
 
         :param team_id: A team identifier or slug (required)
         :type team_id: str
-        :param team_user_params: The team user data to delete (required)
+        :param team_user_params: The team user data to unlink (required)
         :type team_user_params: TeamUserParams
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1215,7 +1215,7 @@ class TeamApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> TeamUsers:
-        """Fetch all users assigned to team
+        """Fetch all users attached to team
 
 
         :param team_id: A team identifier or slug (required)
@@ -1304,7 +1304,7 @@ class TeamApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[TeamUsers]:
-        """Fetch all users assigned to team
+        """Fetch all users attached to team
 
 
         :param team_id: A team identifier or slug (required)
@@ -1393,7 +1393,7 @@ class TeamApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Fetch all users assigned to team
+        """Fetch all users attached to team
 
 
         :param team_id: A team identifier or slug (required)

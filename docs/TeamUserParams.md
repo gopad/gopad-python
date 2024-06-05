@@ -1,6 +1,6 @@
 # TeamUserParams
 
-Parameters to attach or remove team user
+Parameters to attach or unlink team user
 
 ## Properties
 
