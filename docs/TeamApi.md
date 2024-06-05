@@ -4,11 +4,11 @@ All URIs are relative to *https://try.gopad.eu/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**attach_team_to_user**](TeamApi.md#attach_team_to_user) | **POST** /teams/{team_id}/users | Assign a user to team
+[**attach_team_to_user**](TeamApi.md#attach_team_to_user) | **POST** /teams/{team_id}/users | Attach a user to team
 [**create_team**](TeamApi.md#create_team) | **POST** /teams | Create a new team
 [**delete_team**](TeamApi.md#delete_team) | **DELETE** /teams/{team_id} | Delete a specific team
-[**delete_team_from_user**](TeamApi.md#delete_team_from_user) | **DELETE** /teams/{team_id}/users | Remove a user from team
-[**list_team_users**](TeamApi.md#list_team_users) | **GET** /teams/{team_id}/users | Fetch all users assigned to team
+[**delete_team_from_user**](TeamApi.md#delete_team_from_user) | **DELETE** /teams/{team_id}/users | Unlink a user from team
+[**list_team_users**](TeamApi.md#list_team_users) | **GET** /teams/{team_id}/users | Fetch all users attached to team
 [**list_teams**](TeamApi.md#list_teams) | **GET** /teams | Fetch all available teams
 [**permit_team_user**](TeamApi.md#permit_team_user) | **PUT** /teams/{team_id}/users | Update user perms for team
 [**show_team**](TeamApi.md#show_team) | **GET** /teams/{team_id} | Fetch a specific team
@@ -18,7 +18,7 @@ Method | HTTP request | Description
 # **attach_team_to_user**
 > Notification attach_team_to_user(team_id, team_user_params)
 
-Assign a user to team
+Attach a user to team
 
 ### Example
 
@@ -76,7 +76,7 @@ with gopad.ApiClient(configuration) as api_client:
     team_user_params = gopad.TeamUserParams() # TeamUserParams | The team user data to attach
 
     try:
-        # Assign a user to team
+        # Attach a user to team
         api_response = api_instance.attach_team_to_user(team_id, team_user_params)
         print("The response of TeamApi->attach_team_to_user:\n")
         pprint(api_response)
@@ -114,7 +114,7 @@ Name | Type | Description  | Notes
 **200** | Plain success message |  -  |
 **403** | User is not authorized |  -  |
 **404** | Team or user not found |  -  |
-**412** | User is already assigned |  -  |
+**412** | User is already attached |  -  |
 **422** | Failed to validate request |  -  |
 **500** | Some internal server error |  -  |
 **0** | Some error unrelated to the handler |  -  |
@@ -327,7 +327,7 @@ Name | Type | Description  | Notes
 # **delete_team_from_user**
 > Notification delete_team_from_user(team_id, team_user_params)
 
-Remove a user from team
+Unlink a user from team
 
 ### Example
 
@@ -382,10 +382,10 @@ with gopad.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gopad.TeamApi(api_client)
     team_id = 'team_id_example' # str | A team identifier or slug
-    team_user_params = gopad.TeamUserParams() # TeamUserParams | The team user data to delete
+    team_user_params = gopad.TeamUserParams() # TeamUserParams | The team user data to unlink
 
     try:
-        # Remove a user from team
+        # Unlink a user from team
         api_response = api_instance.delete_team_from_user(team_id, team_user_params)
         print("The response of TeamApi->delete_team_from_user:\n")
         pprint(api_response)
@@ -401,7 +401,7 @@ with gopad.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **team_id** | **str**| A team identifier or slug | 
- **team_user_params** | [**TeamUserParams**](TeamUserParams.md)| The team user data to delete | 
+ **team_user_params** | [**TeamUserParams**](TeamUserParams.md)| The team user data to unlink | 
 
 ### Return type
 
@@ -423,7 +423,7 @@ Name | Type | Description  | Notes
 **200** | Plain success message |  -  |
 **403** | User is not authorized |  -  |
 **404** | Team or user not found |  -  |
-**412** | User is not assigned |  -  |
+**412** | User is not attached |  -  |
 **500** | Some internal server error |  -  |
 **0** | Some error unrelated to the handler |  -  |
 
@@ -432,7 +432,7 @@ Name | Type | Description  | Notes
 # **list_team_users**
 > TeamUsers list_team_users(team_id, search=search, sort=sort, order=order, limit=limit, offset=offset)
 
-Fetch all users assigned to team
+Fetch all users attached to team
 
 ### Example
 
@@ -493,7 +493,7 @@ with gopad.ApiClient(configuration) as api_client:
     offset = 0 # int | Paging offset (optional) (default to 0)
 
     try:
-        # Fetch all users assigned to team
+        # Fetch all users attached to team
         api_response = api_instance.list_team_users(team_id, search=search, sort=sort, order=order, limit=limit, offset=offset)
         print("The response of TeamApi->list_team_users:\n")
         pprint(api_response)
@@ -747,7 +747,7 @@ Name | Type | Description  | Notes
 **200** | Plain success message |  -  |
 **403** | User is not authorized |  -  |
 **404** | Team or user not found |  -  |
-**412** | User is not assigned |  -  |
+**412** | User is not attached |  -  |
 **422** | Failed to validate request |  -  |
 **500** | Some internal server error |  -  |
 **0** | Some error unrelated to the handler |  -  |
