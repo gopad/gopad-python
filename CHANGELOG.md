@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.3.0](https://github.com/gopad/gopad-python/compare/v1.2.0...v1.3.0) (2024-10-07)
+
+
+### Features
+
+* upgrade all deps and raise python version to 3.9 ([8d29866](https://github.com/gopad/gopad-python/commit/8d2986619c1fbc81d6d3ca84197483a0e77d0fda))
+
+
+### Bugfixes
+
+* **deps:** update dependency build to v1.2.2.post1 ([ad9b340](https://github.com/gopad/gopad-python/commit/ad9b34090349559d72d5baa91f9ff0103ae6078c))
+
 ## [1.2.0](https://github.com/gopad/gopad-python/compare/v1.1.0...v1.2.0) (2024-06-10)
 
 
