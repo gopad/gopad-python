@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.4.1](https://github.com/gopad/gopad-python/compare/v1.4.0...v1.4.1) (2024-12-02)
+
+
+### Bugfixes
+
+* **deps:** update dependency pydantic to v2.10.2 ([#76](https://github.com/gopad/gopad-python/issues/76)) ([480d10f](https://github.com/gopad/gopad-python/commit/480d10f75aea2f1f47a51c68fa871464d7505a6f))
+* **deps:** update dependency pytest to v8.3.4 ([#77](https://github.com/gopad/gopad-python/issues/77)) ([9869a7c](https://github.com/gopad/gopad-python/commit/9869a7c07da396e0ce752286c130201af496ecce))
+
 ## [1.4.0](https://github.com/gopad/gopad-python/compare/v1.3.0...v1.4.0) (2024-11-25)
 
 
