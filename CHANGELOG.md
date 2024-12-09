@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.4.2](https://github.com/gopad/gopad-python/compare/v1.4.1...v1.4.2) (2024-12-09)
+
+
+### Bugfixes
+
+* **deps:** update dependency pydantic to v2.10.3 ([#78](https://github.com/gopad/gopad-python/issues/78)) ([dba534e](https://github.com/gopad/gopad-python/commit/dba534ea7d67431a4bbd3cecc80beb664a6e867a))
+* **deps:** update dependency types-python-dateutil to v2.9.0.20241206 ([#79](https://github.com/gopad/gopad-python/issues/79)) ([251f609](https://github.com/gopad/gopad-python/commit/251f609f6070c9f09e953b3f43da2c428ab21eb8))
+
 ## [1.4.1](https://github.com/gopad/gopad-python/compare/v1.4.0...v1.4.1) (2024-12-02)
 
 
