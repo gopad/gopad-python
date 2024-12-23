@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.5.0](https://github.com/gopad/gopad-python/compare/v1.4.2...v1.5.0) (2024-12-23)
+
+
+### Features
+
+* **deps:** update dependency urllib3 to v2.3.0 ([#81](https://github.com/gopad/gopad-python/issues/81)) ([141a908](https://github.com/gopad/gopad-python/commit/141a908e9f05ded46bf1f5528967ceda35c42f03))
+
+
+### Bugfixes
+
+* **deps:** update dependency pydantic to v2.10.4 ([#80](https://github.com/gopad/gopad-python/issues/80)) ([6e59bb7](https://github.com/gopad/gopad-python/commit/6e59bb737b235e2454650d56ab81f1e7add48776))
+
 ## [1.4.2](https://github.com/gopad/gopad-python/compare/v1.4.1...v1.4.2) (2024-12-09)
 
 
