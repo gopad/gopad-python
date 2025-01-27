@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "gopad"
-version = "1.5.1"
+version = "1.5.2"
 description = "Gopad OpenAPI"
 
 classifiers = [
