@@ -13,9 +13,14 @@
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
     };
+
+    git-hooks = {
+      url = "github:cachix/git-hooks.nix";
+    };
   };
 
-  outputs = inputs@{ flake-parts, ... }:
+  outputs =
+    inputs@{ flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
         inputs.devenv.flakeModule
@@ -28,38 +33,56 @@
         "aarch64-darwin"
       ];
 
-      perSystem = { config, self', inputs', pkgs, system, ... }: {
-        imports = [
-          {
-            _module.args.pkgs = import inputs.nixpkgs {
-              inherit system;
-              config.allowUnfree = true;
-            };
-          }
-        ];
+      perSystem =
+        {
+          config,
+          self',
+          inputs',
+          pkgs,
+          system,
+          ...
+        }:
+        {
+          imports = [
+            {
+              _module.args.pkgs = import inputs.nixpkgs {
+                inherit system;
+                config.allowUnfree = true;
+              };
+            }
+          ];
 
-        devenv = {
-          shells = {
-            default = {
-              languages = {
-                python = {
-                  enable = true;
-                  package = pkgs.python312;
-
-                  poetry = {
-                    enable = true;
-                    package = pkgs.poetry;
+          devenv = {
+            shells = {
+              default = {
+                git-hooks = {
+                  hooks = {
+                    nixfmt-rfc-style = {
+                      enable = true;
+                    };
                   };
                 };
-              };
 
-              packages = with pkgs; [
-                openapi-generator-cli
-                poetry
-              ];
+                languages = {
+                  python = {
+                    enable = true;
+                    package = pkgs.python312;
+
+                    poetry = {
+                      enable = true;
+                      package = pkgs.poetry;
+                    };
+                  };
+                };
+
+                packages = with pkgs; [
+                  nixfmt-rfc-style
+                  openapi-generator-cli
+                  poetry
+                ];
+              };
             };
           };
         };
-      };
     };
 }
