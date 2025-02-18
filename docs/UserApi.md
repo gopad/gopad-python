@@ -4,25 +4,24 @@ All URIs are relative to *https://try.gopad.eu/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**attach_user_to_team**](UserApi.md#attach_user_to_team) | **POST** /users/{user_id}/teams | Attach a team to user
+[**attach_user_to_group**](UserApi.md#attach_user_to_group) | **POST** /users/{user_id}/groups | Attach a group to user
 [**create_user**](UserApi.md#create_user) | **POST** /users | Create a new user
 [**delete_user**](UserApi.md#delete_user) | **DELETE** /users/{user_id} | Delete a specific user
-[**delete_user_from_team**](UserApi.md#delete_user_from_team) | **DELETE** /users/{user_id}/teams | Unlink a team from user
-[**list_user_teams**](UserApi.md#list_user_teams) | **GET** /users/{user_id}/teams | Fetch all teams attached to user
+[**delete_user_from_group**](UserApi.md#delete_user_from_group) | **DELETE** /users/{user_id}/groups | Unlink a group from user
+[**list_user_groups**](UserApi.md#list_user_groups) | **GET** /users/{user_id}/groups | Fetch all groups attached to user
 [**list_users**](UserApi.md#list_users) | **GET** /users | Fetch all available users
-[**permit_user_team**](UserApi.md#permit_user_team) | **PUT** /users/{user_id}/teams | Update team perms for user
+[**permit_user_group**](UserApi.md#permit_user_group) | **PUT** /users/{user_id}/groups | Update group perms for user
 [**show_user**](UserApi.md#show_user) | **GET** /users/{user_id} | Fetch a specific user
 [**update_user**](UserApi.md#update_user) | **PUT** /users/{user_id} | Update a specific user
 
 
-# **attach_user_to_team**
-> Notification attach_user_to_team(user_id, user_team_params)
+# **attach_user_to_group**
+> Notification attach_user_to_group(user_id, permit_user_group_request)
 
-Attach a team to user
+Attach a group to user
 
 ### Example
 
-* Api Key Authentication (Cookie):
 * Basic Authentication (Basic):
 * Api Key Authentication (Header):
 * Bearer Authentication (Bearer):
@@ -30,7 +29,7 @@ Attach a team to user
 ```python
 import gopad
 from gopad.models.notification import Notification
-from gopad.models.user_team_params import UserTeamParams
+from gopad.models.permit_user_group_request import PermitUserGroupRequest
 from gopad.rest import ApiException
 from pprint import pprint
 
@@ -44,12 +43,6 @@ configuration = gopad.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: Cookie
-configuration.api_key['Cookie'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Cookie'] = 'Bearer'
 
 # Configure HTTP basic authorization: Basic
 configuration = gopad.Configuration(
@@ -73,15 +66,15 @@ with gopad.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gopad.UserApi(api_client)
     user_id = 'user_id_example' # str | A user identifier or slug
-    user_team_params = gopad.UserTeamParams() # UserTeamParams | The user team data to attach
+    permit_user_group_request = gopad.PermitUserGroupRequest() # PermitUserGroupRequest | The user group data to permit
 
     try:
-        # Attach a team to user
-        api_response = api_instance.attach_user_to_team(user_id, user_team_params)
-        print("The response of UserApi->attach_user_to_team:\n")
+        # Attach a group to user
+        api_response = api_instance.attach_user_to_group(user_id, permit_user_group_request)
+        print("The response of UserApi->attach_user_to_group:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling UserApi->attach_user_to_team: %s\n" % e)
+        print("Exception when calling UserApi->attach_user_to_group: %s\n" % e)
 ```
 
 
@@ -92,7 +85,7 @@ with gopad.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **str**| A user identifier or slug | 
- **user_team_params** | [**UserTeamParams**](UserTeamParams.md)| The user team data to attach | 
+ **permit_user_group_request** | [**PermitUserGroupRequest**](PermitUserGroupRequest.md)| The user group data to permit | 
 
 ### Return type
 
@@ -100,7 +93,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Cookie](../README.md#Cookie), [Basic](../README.md#Basic), [Header](../README.md#Header), [Bearer](../README.md#Bearer)
+[Basic](../README.md#Basic), [Header](../README.md#Header), [Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -113,28 +106,27 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Plain success message |  -  |
 **403** | User is not authorized |  -  |
-**404** | User or team not found |  -  |
-**412** | Team is already attached |  -  |
+**404** | Resource not found |  -  |
+**412** | Resource is already attached |  -  |
 **422** | Failed to validate request |  -  |
 **500** | Some internal server error |  -  |
-**0** | Some error unrelated to the handler |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_user**
-> User create_user(user)
+> User create_user(create_user_request)
 
 Create a new user
 
 ### Example
 
-* Api Key Authentication (Cookie):
 * Basic Authentication (Basic):
 * Api Key Authentication (Header):
 * Bearer Authentication (Bearer):
 
 ```python
 import gopad
+from gopad.models.create_user_request import CreateUserRequest
 from gopad.models.user import User
 from gopad.rest import ApiException
 from pprint import pprint
@@ -149,12 +141,6 @@ configuration = gopad.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: Cookie
-configuration.api_key['Cookie'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Cookie'] = 'Bearer'
 
 # Configure HTTP basic authorization: Basic
 configuration = gopad.Configuration(
@@ -177,11 +163,11 @@ configuration = gopad.Configuration(
 with gopad.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gopad.UserApi(api_client)
-    user = gopad.User() # User | The user data to create
+    create_user_request = gopad.CreateUserRequest() # CreateUserRequest | The user data to create
 
     try:
         # Create a new user
-        api_response = api_instance.create_user(user)
+        api_response = api_instance.create_user(create_user_request)
         print("The response of UserApi->create_user:\n")
         pprint(api_response)
     except Exception as e:
@@ -195,7 +181,7 @@ with gopad.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user** | [**User**](User.md)| The user data to create | 
+ **create_user_request** | [**CreateUserRequest**](CreateUserRequest.md)| The user data to create | 
 
 ### Return type
 
@@ -203,7 +189,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Cookie](../README.md#Cookie), [Basic](../README.md#Basic), [Header](../README.md#Header), [Bearer](../README.md#Bearer)
+[Basic](../README.md#Basic), [Header](../README.md#Header), [Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -214,11 +200,10 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The created user data |  -  |
+**200** | The details for an user |  -  |
 **403** | User is not authorized |  -  |
 **422** | Failed to validate request |  -  |
 **500** | Some internal server error |  -  |
-**0** | Some error unrelated to the handler |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -229,7 +214,6 @@ Delete a specific user
 
 ### Example
 
-* Api Key Authentication (Cookie):
 * Basic Authentication (Basic):
 * Api Key Authentication (Header):
 * Bearer Authentication (Bearer):
@@ -250,12 +234,6 @@ configuration = gopad.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: Cookie
-configuration.api_key['Cookie'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Cookie'] = 'Bearer'
 
 # Configure HTTP basic authorization: Basic
 configuration = gopad.Configuration(
@@ -304,7 +282,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Cookie](../README.md#Cookie), [Basic](../README.md#Basic), [Header](../README.md#Header), [Bearer](../README.md#Bearer)
+[Basic](../README.md#Basic), [Header](../README.md#Header), [Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -317,29 +295,27 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Plain success message |  -  |
 **403** | User is not authorized |  -  |
-**404** | User not found |  -  |
-**400** | Failed to delete the user |  -  |
+**404** | Resource not found |  -  |
+**400** | Failed to execute action for resource |  -  |
 **500** | Some internal server error |  -  |
-**0** | Some error unrelated to the handler |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **delete_user_from_team**
-> Notification delete_user_from_team(user_id, user_team_params)
+# **delete_user_from_group**
+> Notification delete_user_from_group(user_id, delete_user_from_group_request)
 
-Unlink a team from user
+Unlink a group from user
 
 ### Example
 
-* Api Key Authentication (Cookie):
 * Basic Authentication (Basic):
 * Api Key Authentication (Header):
 * Bearer Authentication (Bearer):
 
 ```python
 import gopad
+from gopad.models.delete_user_from_group_request import DeleteUserFromGroupRequest
 from gopad.models.notification import Notification
-from gopad.models.user_team_params import UserTeamParams
 from gopad.rest import ApiException
 from pprint import pprint
 
@@ -353,12 +329,6 @@ configuration = gopad.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: Cookie
-configuration.api_key['Cookie'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Cookie'] = 'Bearer'
 
 # Configure HTTP basic authorization: Basic
 configuration = gopad.Configuration(
@@ -382,15 +352,15 @@ with gopad.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gopad.UserApi(api_client)
     user_id = 'user_id_example' # str | A user identifier or slug
-    user_team_params = gopad.UserTeamParams() # UserTeamParams | The user team data to unlink
+    delete_user_from_group_request = gopad.DeleteUserFromGroupRequest() # DeleteUserFromGroupRequest | The user group data to unlink
 
     try:
-        # Unlink a team from user
-        api_response = api_instance.delete_user_from_team(user_id, user_team_params)
-        print("The response of UserApi->delete_user_from_team:\n")
+        # Unlink a group from user
+        api_response = api_instance.delete_user_from_group(user_id, delete_user_from_group_request)
+        print("The response of UserApi->delete_user_from_group:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling UserApi->delete_user_from_team: %s\n" % e)
+        print("Exception when calling UserApi->delete_user_from_group: %s\n" % e)
 ```
 
 
@@ -401,7 +371,7 @@ with gopad.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **str**| A user identifier or slug | 
- **user_team_params** | [**UserTeamParams**](UserTeamParams.md)| The user team data to unlink | 
+ **delete_user_from_group_request** | [**DeleteUserFromGroupRequest**](DeleteUserFromGroupRequest.md)| The user group data to unlink | 
 
 ### Return type
 
@@ -409,7 +379,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Cookie](../README.md#Cookie), [Basic](../README.md#Basic), [Header](../README.md#Header), [Bearer](../README.md#Bearer)
+[Basic](../README.md#Basic), [Header](../README.md#Header), [Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -422,28 +392,26 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Plain success message |  -  |
 **403** | User is not authorized |  -  |
-**404** | User or team not found |  -  |
-**412** | Team is not attached |  -  |
+**404** | Resource not found |  -  |
+**412** | Resource is not attached |  -  |
 **500** | Some internal server error |  -  |
-**0** | Some error unrelated to the handler |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **list_user_teams**
-> UserTeams list_user_teams(user_id, search=search, sort=sort, order=order, limit=limit, offset=offset)
+# **list_user_groups**
+> ListUserGroups200Response list_user_groups(user_id, search=search, sort=sort, order=order, limit=limit, offset=offset)
 
-Fetch all teams attached to user
+Fetch all groups attached to user
 
 ### Example
 
-* Api Key Authentication (Cookie):
 * Basic Authentication (Basic):
 * Api Key Authentication (Header):
 * Bearer Authentication (Bearer):
 
 ```python
 import gopad
-from gopad.models.user_teams import UserTeams
+from gopad.models.list_user_groups200_response import ListUserGroups200Response
 from gopad.rest import ApiException
 from pprint import pprint
 
@@ -457,12 +425,6 @@ configuration = gopad.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: Cookie
-configuration.api_key['Cookie'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Cookie'] = 'Bearer'
 
 # Configure HTTP basic authorization: Basic
 configuration = gopad.Configuration(
@@ -487,18 +449,18 @@ with gopad.ApiClient(configuration) as api_client:
     api_instance = gopad.UserApi(api_client)
     user_id = 'user_id_example' # str | A user identifier or slug
     search = 'search_example' # str | Search query (optional)
-    sort = 'name' # str | Sorting column (optional) (default to 'name')
-    order = 'asc' # str | Sorting order (optional) (default to 'asc')
-    limit = 56 # int | Paging limit (optional)
-    offset = 56 # int | Paging offset (optional)
+    sort = 'sort_example' # str | Sorting column (optional)
+    order = asc # str | Sorting order (optional) (default to asc)
+    limit = 100 # int | Paging limit (optional) (default to 100)
+    offset = 0 # int | Paging offset (optional) (default to 0)
 
     try:
-        # Fetch all teams attached to user
-        api_response = api_instance.list_user_teams(user_id, search=search, sort=sort, order=order, limit=limit, offset=offset)
-        print("The response of UserApi->list_user_teams:\n")
+        # Fetch all groups attached to user
+        api_response = api_instance.list_user_groups(user_id, search=search, sort=sort, order=order, limit=limit, offset=offset)
+        print("The response of UserApi->list_user_groups:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling UserApi->list_user_teams: %s\n" % e)
+        print("Exception when calling UserApi->list_user_groups: %s\n" % e)
 ```
 
 
@@ -510,18 +472,18 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **str**| A user identifier or slug | 
  **search** | **str**| Search query | [optional] 
- **sort** | **str**| Sorting column | [optional] [default to &#39;name&#39;]
- **order** | **str**| Sorting order | [optional] [default to &#39;asc&#39;]
- **limit** | **int**| Paging limit | [optional] 
- **offset** | **int**| Paging offset | [optional] 
+ **sort** | **str**| Sorting column | [optional] 
+ **order** | **str**| Sorting order | [optional] [default to asc]
+ **limit** | **int**| Paging limit | [optional] [default to 100]
+ **offset** | **int**| Paging offset | [optional] [default to 0]
 
 ### Return type
 
-[**UserTeams**](UserTeams.md)
+[**ListUserGroups200Response**](ListUserGroups200Response.md)
 
 ### Authorization
 
-[Cookie](../README.md#Cookie), [Basic](../README.md#Basic), [Header](../README.md#Header), [Bearer](../README.md#Bearer)
+[Basic](../README.md#Basic), [Header](../README.md#Header), [Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -532,29 +494,27 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A collection of user teams |  -  |
+**200** | A collection of user groups |  -  |
 **403** | User is not authorized |  -  |
-**404** | User not found |  -  |
+**404** | Resource not found |  -  |
 **500** | Some internal server error |  -  |
-**0** | Some error unrelated to the handler |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_users**
-> Users list_users(search=search, sort=sort, order=order, limit=limit, offset=offset)
+> ListUsers200Response list_users(search=search, sort=sort, order=order, limit=limit, offset=offset)
 
 Fetch all available users
 
 ### Example
 
-* Api Key Authentication (Cookie):
 * Basic Authentication (Basic):
 * Api Key Authentication (Header):
 * Bearer Authentication (Bearer):
 
 ```python
 import gopad
-from gopad.models.users import Users
+from gopad.models.list_users200_response import ListUsers200Response
 from gopad.rest import ApiException
 from pprint import pprint
 
@@ -568,12 +528,6 @@ configuration = gopad.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: Cookie
-configuration.api_key['Cookie'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Cookie'] = 'Bearer'
 
 # Configure HTTP basic authorization: Basic
 configuration = gopad.Configuration(
@@ -597,8 +551,8 @@ with gopad.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gopad.UserApi(api_client)
     search = 'search_example' # str | Search query (optional)
-    sort = 'username' # str | Sorting column (optional) (default to 'username')
-    order = 'asc' # str | Sorting order (optional) (default to 'asc')
+    sort = 'sort_example' # str | Sorting column (optional)
+    order = asc # str | Sorting order (optional) (default to asc)
     limit = 100 # int | Paging limit (optional) (default to 100)
     offset = 0 # int | Paging offset (optional) (default to 0)
 
@@ -619,18 +573,18 @@ with gopad.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **search** | **str**| Search query | [optional] 
- **sort** | **str**| Sorting column | [optional] [default to &#39;username&#39;]
- **order** | **str**| Sorting order | [optional] [default to &#39;asc&#39;]
+ **sort** | **str**| Sorting column | [optional] 
+ **order** | **str**| Sorting order | [optional] [default to asc]
  **limit** | **int**| Paging limit | [optional] [default to 100]
  **offset** | **int**| Paging offset | [optional] [default to 0]
 
 ### Return type
 
-[**Users**](Users.md)
+[**ListUsers200Response**](ListUsers200Response.md)
 
 ### Authorization
 
-[Cookie](../README.md#Cookie), [Basic](../README.md#Basic), [Header](../README.md#Header), [Bearer](../README.md#Bearer)
+[Basic](../README.md#Basic), [Header](../README.md#Header), [Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -644,18 +598,16 @@ Name | Type | Description  | Notes
 **200** | A collection of users |  -  |
 **403** | User is not authorized |  -  |
 **500** | Some internal server error |  -  |
-**0** | Some error unrelated to the handler |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **permit_user_team**
-> Notification permit_user_team(user_id, user_team_params)
+# **permit_user_group**
+> Notification permit_user_group(user_id, permit_user_group_request)
 
-Update team perms for user
+Update group perms for user
 
 ### Example
 
-* Api Key Authentication (Cookie):
 * Basic Authentication (Basic):
 * Api Key Authentication (Header):
 * Bearer Authentication (Bearer):
@@ -663,7 +615,7 @@ Update team perms for user
 ```python
 import gopad
 from gopad.models.notification import Notification
-from gopad.models.user_team_params import UserTeamParams
+from gopad.models.permit_user_group_request import PermitUserGroupRequest
 from gopad.rest import ApiException
 from pprint import pprint
 
@@ -677,12 +629,6 @@ configuration = gopad.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: Cookie
-configuration.api_key['Cookie'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Cookie'] = 'Bearer'
 
 # Configure HTTP basic authorization: Basic
 configuration = gopad.Configuration(
@@ -706,15 +652,15 @@ with gopad.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gopad.UserApi(api_client)
     user_id = 'user_id_example' # str | A user identifier or slug
-    user_team_params = gopad.UserTeamParams() # UserTeamParams | The user team data to update
+    permit_user_group_request = gopad.PermitUserGroupRequest() # PermitUserGroupRequest | The user group data to permit
 
     try:
-        # Update team perms for user
-        api_response = api_instance.permit_user_team(user_id, user_team_params)
-        print("The response of UserApi->permit_user_team:\n")
+        # Update group perms for user
+        api_response = api_instance.permit_user_group(user_id, permit_user_group_request)
+        print("The response of UserApi->permit_user_group:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling UserApi->permit_user_team: %s\n" % e)
+        print("Exception when calling UserApi->permit_user_group: %s\n" % e)
 ```
 
 
@@ -725,7 +671,7 @@ with gopad.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **str**| A user identifier or slug | 
- **user_team_params** | [**UserTeamParams**](UserTeamParams.md)| The user team data to update | 
+ **permit_user_group_request** | [**PermitUserGroupRequest**](PermitUserGroupRequest.md)| The user group data to permit | 
 
 ### Return type
 
@@ -733,7 +679,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Cookie](../README.md#Cookie), [Basic](../README.md#Basic), [Header](../README.md#Header), [Bearer](../README.md#Bearer)
+[Basic](../README.md#Basic), [Header](../README.md#Header), [Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -746,11 +692,10 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Plain success message |  -  |
 **403** | User is not authorized |  -  |
-**404** | User or team not found |  -  |
-**412** | Team is not attached |  -  |
+**404** | Resource not found |  -  |
+**412** | Resource is not attached |  -  |
 **422** | Failed to validate request |  -  |
 **500** | Some internal server error |  -  |
-**0** | Some error unrelated to the handler |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -761,7 +706,6 @@ Fetch a specific user
 
 ### Example
 
-* Api Key Authentication (Cookie):
 * Basic Authentication (Basic):
 * Api Key Authentication (Header):
 * Bearer Authentication (Bearer):
@@ -782,12 +726,6 @@ configuration = gopad.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: Cookie
-configuration.api_key['Cookie'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Cookie'] = 'Bearer'
 
 # Configure HTTP basic authorization: Basic
 configuration = gopad.Configuration(
@@ -836,7 +774,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Cookie](../README.md#Cookie), [Basic](../README.md#Basic), [Header](../README.md#Header), [Bearer](../README.md#Bearer)
+[Basic](../README.md#Basic), [Header](../README.md#Header), [Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -847,28 +785,27 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The fetched user details |  -  |
+**200** | The details for an user |  -  |
 **403** | User is not authorized |  -  |
-**404** | User not found |  -  |
+**404** | Resource not found |  -  |
 **500** | Some internal server error |  -  |
-**0** | Some error unrelated to the handler |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_user**
-> User update_user(user_id, user)
+> User update_user(user_id, update_user_request)
 
 Update a specific user
 
 ### Example
 
-* Api Key Authentication (Cookie):
 * Basic Authentication (Basic):
 * Api Key Authentication (Header):
 * Bearer Authentication (Bearer):
 
 ```python
 import gopad
+from gopad.models.update_user_request import UpdateUserRequest
 from gopad.models.user import User
 from gopad.rest import ApiException
 from pprint import pprint
@@ -883,12 +820,6 @@ configuration = gopad.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: Cookie
-configuration.api_key['Cookie'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Cookie'] = 'Bearer'
 
 # Configure HTTP basic authorization: Basic
 configuration = gopad.Configuration(
@@ -912,11 +843,11 @@ with gopad.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gopad.UserApi(api_client)
     user_id = 'user_id_example' # str | A user identifier or slug
-    user = gopad.User() # User | The user data to update
+    update_user_request = gopad.UpdateUserRequest() # UpdateUserRequest | The user data to update
 
     try:
         # Update a specific user
-        api_response = api_instance.update_user(user_id, user)
+        api_response = api_instance.update_user(user_id, update_user_request)
         print("The response of UserApi->update_user:\n")
         pprint(api_response)
     except Exception as e:
@@ -931,7 +862,7 @@ with gopad.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **str**| A user identifier or slug | 
- **user** | [**User**](User.md)| The user data to update | 
+ **update_user_request** | [**UpdateUserRequest**](UpdateUserRequest.md)| The user data to update | 
 
 ### Return type
 
@@ -939,7 +870,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Cookie](../README.md#Cookie), [Basic](../README.md#Basic), [Header](../README.md#Header), [Bearer](../README.md#Bearer)
+[Basic](../README.md#Basic), [Header](../README.md#Header), [Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -950,12 +881,11 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The updated user details |  -  |
+**200** | The details for an user |  -  |
 **403** | User is not authorized |  -  |
-**404** | User not found |  -  |
+**404** | Resource not found |  -  |
 **422** | Failed to validate request |  -  |
 **500** | Some internal server error |  -  |
-**0** | Some error unrelated to the handler |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

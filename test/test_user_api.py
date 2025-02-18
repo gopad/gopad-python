@@ -27,10 +27,10 @@ class TestUserApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_attach_user_to_team(self) -> None:
-        """Test case for attach_user_to_team
+    def test_attach_user_to_group(self) -> None:
+        """Test case for attach_user_to_group
 
-        Assign a team to user
+        Attach a group to user
         """
         pass
 
@@ -48,17 +48,17 @@ class TestUserApi(unittest.TestCase):
         """
         pass
 
-    def test_delete_user_from_team(self) -> None:
-        """Test case for delete_user_from_team
+    def test_delete_user_from_group(self) -> None:
+        """Test case for delete_user_from_group
 
-        Remove a team from user
+        Unlink a group from user
         """
         pass
 
-    def test_list_user_teams(self) -> None:
-        """Test case for list_user_teams
+    def test_list_user_groups(self) -> None:
+        """Test case for list_user_groups
 
-        Fetch all teams assigned to user
+        Fetch all groups attached to user
         """
         pass
 
@@ -69,10 +69,10 @@ class TestUserApi(unittest.TestCase):
         """
         pass
 
-    def test_permit_user_team(self) -> None:
-        """Test case for permit_user_team
+    def test_permit_user_group(self) -> None:
+        """Test case for permit_user_group
 
-        Update team perms for user
+        Update group perms for user
         """
         pass
 

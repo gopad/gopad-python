@@ -28,7 +28,7 @@ class TestProfile(unittest.TestCase):
 
     def make_instance(self, include_optional) -> Profile:
         """Test Profile
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `Profile`
@@ -53,8 +53,8 @@ class TestProfile(unittest.TestCase):
                         created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                     ],
-                teams = [
-                    gopad.models.user_team.User Team(
+                groups = [
+                    gopad.models.user_group.User Group(
                         user_id = '', 
                         user = gopad.models.user.User(
                             id = '', 
@@ -73,26 +73,9 @@ class TestProfile(unittest.TestCase):
                                     ref = '', 
                                     created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                                     updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
-                                ], 
-                            teams = [
-                                gopad.models.user_team.User Team(
-                                    user_id = '', 
-                                    team_id = '', 
-                                    team = gopad.models.team.Team(
-                                        id = '', 
-                                        slug = '', 
-                                        name = '', 
-                                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                                        updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                                        users = [
-                                            
-                                            ], ), 
-                                    perm = 'user', 
-                                    created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                                    updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                                 ], ), 
-                        team_id = '', 
-                        team = gopad.models.team.Team(
+                        group_id = '', 
+                        group = gopad.models.group.Group(
                             id = '', 
                             slug = '', 
                             name = '', 

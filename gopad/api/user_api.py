@@ -20,11 +20,14 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt, StrictStr, field_validator
 from typing import Optional
 from typing_extensions import Annotated
+from gopad.models.create_user_request import CreateUserRequest
+from gopad.models.delete_user_from_group_request import DeleteUserFromGroupRequest
+from gopad.models.list_user_groups200_response import ListUserGroups200Response
+from gopad.models.list_users200_response import ListUsers200Response
 from gopad.models.notification import Notification
+from gopad.models.permit_user_group_request import PermitUserGroupRequest
+from gopad.models.update_user_request import UpdateUserRequest
 from gopad.models.user import User
-from gopad.models.user_team_params import UserTeamParams
-from gopad.models.user_teams import UserTeams
-from gopad.models.users import Users
 
 from gopad.api_client import ApiClient, RequestSerialized
 from gopad.api_response import ApiResponse
@@ -45,10 +48,10 @@ class UserApi:
 
 
     @validate_call
-    def attach_user_to_team(
+    def attach_user_to_group(
         self,
         user_id: Annotated[StrictStr, Field(description="A user identifier or slug")],
-        user_team_params: Annotated[UserTeamParams, Field(description="The user team data to attach")],
+        permit_user_group_request: Annotated[PermitUserGroupRequest, Field(description="The user group data to permit")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -62,13 +65,13 @@ class UserApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Notification:
-        """Attach a team to user
+        """Attach a group to user
 
 
         :param user_id: A user identifier or slug (required)
         :type user_id: str
-        :param user_team_params: The user team data to attach (required)
-        :type user_team_params: UserTeamParams
+        :param permit_user_group_request: The user group data to permit (required)
+        :type permit_user_group_request: PermitUserGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -91,9 +94,9 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._attach_user_to_team_serialize(
+        _param = self._attach_user_to_group_serialize(
             user_id=user_id,
-            user_team_params=user_team_params,
+            permit_user_group_request=permit_user_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -120,10 +123,10 @@ class UserApi:
 
 
     @validate_call
-    def attach_user_to_team_with_http_info(
+    def attach_user_to_group_with_http_info(
         self,
         user_id: Annotated[StrictStr, Field(description="A user identifier or slug")],
-        user_team_params: Annotated[UserTeamParams, Field(description="The user team data to attach")],
+        permit_user_group_request: Annotated[PermitUserGroupRequest, Field(description="The user group data to permit")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -137,13 +140,13 @@ class UserApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Notification]:
-        """Attach a team to user
+        """Attach a group to user
 
 
         :param user_id: A user identifier or slug (required)
         :type user_id: str
-        :param user_team_params: The user team data to attach (required)
-        :type user_team_params: UserTeamParams
+        :param permit_user_group_request: The user group data to permit (required)
+        :type permit_user_group_request: PermitUserGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -166,9 +169,9 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._attach_user_to_team_serialize(
+        _param = self._attach_user_to_group_serialize(
             user_id=user_id,
-            user_team_params=user_team_params,
+            permit_user_group_request=permit_user_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -195,10 +198,10 @@ class UserApi:
 
 
     @validate_call
-    def attach_user_to_team_without_preload_content(
+    def attach_user_to_group_without_preload_content(
         self,
         user_id: Annotated[StrictStr, Field(description="A user identifier or slug")],
-        user_team_params: Annotated[UserTeamParams, Field(description="The user team data to attach")],
+        permit_user_group_request: Annotated[PermitUserGroupRequest, Field(description="The user group data to permit")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -212,13 +215,13 @@ class UserApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Attach a team to user
+        """Attach a group to user
 
 
         :param user_id: A user identifier or slug (required)
         :type user_id: str
-        :param user_team_params: The user team data to attach (required)
-        :type user_team_params: UserTeamParams
+        :param permit_user_group_request: The user group data to permit (required)
+        :type permit_user_group_request: PermitUserGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -241,9 +244,9 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._attach_user_to_team_serialize(
+        _param = self._attach_user_to_group_serialize(
             user_id=user_id,
-            user_team_params=user_team_params,
+            permit_user_group_request=permit_user_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -265,10 +268,10 @@ class UserApi:
         return response_data.response
 
 
-    def _attach_user_to_team_serialize(
+    def _attach_user_to_group_serialize(
         self,
         user_id,
-        user_team_params,
+        permit_user_group_request,
         _request_auth,
         _content_type,
         _headers,
@@ -284,7 +287,9 @@ class UserApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -294,16 +299,17 @@ class UserApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if user_team_params is not None:
-            _body_params = user_team_params
+        if permit_user_group_request is not None:
+            _body_params = permit_user_group_request
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
         # set the HTTP header `Content-Type`
         if _content_type:
@@ -321,7 +327,6 @@ class UserApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'Cookie', 
             'Basic', 
             'Header', 
             'Bearer'
@@ -329,7 +334,7 @@ class UserApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/users/{user_id}/teams',
+            resource_path='/users/{user_id}/groups',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -348,7 +353,7 @@ class UserApi:
     @validate_call
     def create_user(
         self,
-        user: Annotated[User, Field(description="The user data to create")],
+        create_user_request: Annotated[CreateUserRequest, Field(description="The user data to create")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -365,8 +370,8 @@ class UserApi:
         """Create a new user
 
 
-        :param user: The user data to create (required)
-        :type user: User
+        :param create_user_request: The user data to create (required)
+        :type create_user_request: CreateUserRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -390,7 +395,7 @@ class UserApi:
         """ # noqa: E501
 
         _param = self._create_user_serialize(
-            user=user,
+            create_user_request=create_user_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -417,7 +422,7 @@ class UserApi:
     @validate_call
     def create_user_with_http_info(
         self,
-        user: Annotated[User, Field(description="The user data to create")],
+        create_user_request: Annotated[CreateUserRequest, Field(description="The user data to create")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -434,8 +439,8 @@ class UserApi:
         """Create a new user
 
 
-        :param user: The user data to create (required)
-        :type user: User
+        :param create_user_request: The user data to create (required)
+        :type create_user_request: CreateUserRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -459,7 +464,7 @@ class UserApi:
         """ # noqa: E501
 
         _param = self._create_user_serialize(
-            user=user,
+            create_user_request=create_user_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -486,7 +491,7 @@ class UserApi:
     @validate_call
     def create_user_without_preload_content(
         self,
-        user: Annotated[User, Field(description="The user data to create")],
+        create_user_request: Annotated[CreateUserRequest, Field(description="The user data to create")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -503,8 +508,8 @@ class UserApi:
         """Create a new user
 
 
-        :param user: The user data to create (required)
-        :type user: User
+        :param create_user_request: The user data to create (required)
+        :type create_user_request: CreateUserRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -528,7 +533,7 @@ class UserApi:
         """ # noqa: E501
 
         _param = self._create_user_serialize(
-            user=user,
+            create_user_request=create_user_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -550,7 +555,7 @@ class UserApi:
 
     def _create_user_serialize(
         self,
-        user,
+        create_user_request,
         _request_auth,
         _content_type,
         _headers,
@@ -566,7 +571,9 @@ class UserApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -574,16 +581,17 @@ class UserApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if user is not None:
-            _body_params = user
+        if create_user_request is not None:
+            _body_params = create_user_request
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
         # set the HTTP header `Content-Type`
         if _content_type:
@@ -601,7 +609,6 @@ class UserApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'Cookie', 
             'Basic', 
             'Header', 
             'Bearer'
@@ -849,7 +856,9 @@ class UserApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -862,16 +871,16 @@ class UserApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
         _auth_settings: List[str] = [
-            'Cookie', 
             'Basic', 
             'Header', 
             'Bearer'
@@ -896,10 +905,10 @@ class UserApi:
 
 
     @validate_call
-    def delete_user_from_team(
+    def delete_user_from_group(
         self,
         user_id: Annotated[StrictStr, Field(description="A user identifier or slug")],
-        user_team_params: Annotated[UserTeamParams, Field(description="The user team data to unlink")],
+        delete_user_from_group_request: Annotated[DeleteUserFromGroupRequest, Field(description="The user group data to unlink")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -913,13 +922,13 @@ class UserApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Notification:
-        """Unlink a team from user
+        """Unlink a group from user
 
 
         :param user_id: A user identifier or slug (required)
         :type user_id: str
-        :param user_team_params: The user team data to unlink (required)
-        :type user_team_params: UserTeamParams
+        :param delete_user_from_group_request: The user group data to unlink (required)
+        :type delete_user_from_group_request: DeleteUserFromGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -942,9 +951,9 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_user_from_team_serialize(
+        _param = self._delete_user_from_group_serialize(
             user_id=user_id,
-            user_team_params=user_team_params,
+            delete_user_from_group_request=delete_user_from_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -970,10 +979,10 @@ class UserApi:
 
 
     @validate_call
-    def delete_user_from_team_with_http_info(
+    def delete_user_from_group_with_http_info(
         self,
         user_id: Annotated[StrictStr, Field(description="A user identifier or slug")],
-        user_team_params: Annotated[UserTeamParams, Field(description="The user team data to unlink")],
+        delete_user_from_group_request: Annotated[DeleteUserFromGroupRequest, Field(description="The user group data to unlink")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -987,13 +996,13 @@ class UserApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Notification]:
-        """Unlink a team from user
+        """Unlink a group from user
 
 
         :param user_id: A user identifier or slug (required)
         :type user_id: str
-        :param user_team_params: The user team data to unlink (required)
-        :type user_team_params: UserTeamParams
+        :param delete_user_from_group_request: The user group data to unlink (required)
+        :type delete_user_from_group_request: DeleteUserFromGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1016,9 +1025,9 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_user_from_team_serialize(
+        _param = self._delete_user_from_group_serialize(
             user_id=user_id,
-            user_team_params=user_team_params,
+            delete_user_from_group_request=delete_user_from_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1044,10 +1053,10 @@ class UserApi:
 
 
     @validate_call
-    def delete_user_from_team_without_preload_content(
+    def delete_user_from_group_without_preload_content(
         self,
         user_id: Annotated[StrictStr, Field(description="A user identifier or slug")],
-        user_team_params: Annotated[UserTeamParams, Field(description="The user team data to unlink")],
+        delete_user_from_group_request: Annotated[DeleteUserFromGroupRequest, Field(description="The user group data to unlink")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1061,13 +1070,13 @@ class UserApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Unlink a team from user
+        """Unlink a group from user
 
 
         :param user_id: A user identifier or slug (required)
         :type user_id: str
-        :param user_team_params: The user team data to unlink (required)
-        :type user_team_params: UserTeamParams
+        :param delete_user_from_group_request: The user group data to unlink (required)
+        :type delete_user_from_group_request: DeleteUserFromGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1090,9 +1099,9 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_user_from_team_serialize(
+        _param = self._delete_user_from_group_serialize(
             user_id=user_id,
-            user_team_params=user_team_params,
+            delete_user_from_group_request=delete_user_from_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1113,10 +1122,10 @@ class UserApi:
         return response_data.response
 
 
-    def _delete_user_from_team_serialize(
+    def _delete_user_from_group_serialize(
         self,
         user_id,
-        user_team_params,
+        delete_user_from_group_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1132,7 +1141,9 @@ class UserApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -1142,16 +1153,17 @@ class UserApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if user_team_params is not None:
-            _body_params = user_team_params
+        if delete_user_from_group_request is not None:
+            _body_params = delete_user_from_group_request
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
         # set the HTTP header `Content-Type`
         if _content_type:
@@ -1169,7 +1181,6 @@ class UserApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'Cookie', 
             'Basic', 
             'Header', 
             'Bearer'
@@ -1177,7 +1188,7 @@ class UserApi:
 
         return self.api_client.param_serialize(
             method='DELETE',
-            resource_path='/users/{user_id}/teams',
+            resource_path='/users/{user_id}/groups',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1194,7 +1205,7 @@ class UserApi:
 
 
     @validate_call
-    def list_user_teams(
+    def list_user_groups(
         self,
         user_id: Annotated[StrictStr, Field(description="A user identifier or slug")],
         search: Annotated[Optional[StrictStr], Field(description="Search query")] = None,
@@ -1214,8 +1225,8 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> UserTeams:
-        """Fetch all teams attached to user
+    ) -> ListUserGroups200Response:
+        """Fetch all groups attached to user
 
 
         :param user_id: A user identifier or slug (required)
@@ -1252,7 +1263,7 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._list_user_teams_serialize(
+        _param = self._list_user_groups_serialize(
             user_id=user_id,
             search=search,
             sort=sort,
@@ -1266,7 +1277,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UserTeams",
+            '200': "ListUserGroups200Response",
             '403': "Notification",
             '404': "Notification",
             '500': "Notification",
@@ -1283,7 +1294,7 @@ class UserApi:
 
 
     @validate_call
-    def list_user_teams_with_http_info(
+    def list_user_groups_with_http_info(
         self,
         user_id: Annotated[StrictStr, Field(description="A user identifier or slug")],
         search: Annotated[Optional[StrictStr], Field(description="Search query")] = None,
@@ -1303,8 +1314,8 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[UserTeams]:
-        """Fetch all teams attached to user
+    ) -> ApiResponse[ListUserGroups200Response]:
+        """Fetch all groups attached to user
 
 
         :param user_id: A user identifier or slug (required)
@@ -1341,7 +1352,7 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._list_user_teams_serialize(
+        _param = self._list_user_groups_serialize(
             user_id=user_id,
             search=search,
             sort=sort,
@@ -1355,7 +1366,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UserTeams",
+            '200': "ListUserGroups200Response",
             '403': "Notification",
             '404': "Notification",
             '500': "Notification",
@@ -1372,7 +1383,7 @@ class UserApi:
 
 
     @validate_call
-    def list_user_teams_without_preload_content(
+    def list_user_groups_without_preload_content(
         self,
         user_id: Annotated[StrictStr, Field(description="A user identifier or slug")],
         search: Annotated[Optional[StrictStr], Field(description="Search query")] = None,
@@ -1393,7 +1404,7 @@ class UserApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Fetch all teams attached to user
+        """Fetch all groups attached to user
 
 
         :param user_id: A user identifier or slug (required)
@@ -1430,7 +1441,7 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._list_user_teams_serialize(
+        _param = self._list_user_groups_serialize(
             user_id=user_id,
             search=search,
             sort=sort,
@@ -1444,7 +1455,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UserTeams",
+            '200': "ListUserGroups200Response",
             '403': "Notification",
             '404': "Notification",
             '500': "Notification",
@@ -1456,7 +1467,7 @@ class UserApi:
         return response_data.response
 
 
-    def _list_user_teams_serialize(
+    def _list_user_groups_serialize(
         self,
         user_id,
         search,
@@ -1479,7 +1490,9 @@ class UserApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -1512,16 +1525,16 @@ class UserApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
         _auth_settings: List[str] = [
-            'Cookie', 
             'Basic', 
             'Header', 
             'Bearer'
@@ -1529,7 +1542,7 @@ class UserApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/users/{user_id}/teams',
+            resource_path='/users/{user_id}/groups',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1565,7 +1578,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Users:
+    ) -> ListUsers200Response:
         """Fetch all available users
 
 
@@ -1614,7 +1627,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Users",
+            '200': "ListUsers200Response",
             '403': "Notification",
             '500': "Notification",
         }
@@ -1649,7 +1662,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Users]:
+    ) -> ApiResponse[ListUsers200Response]:
         """Fetch all available users
 
 
@@ -1698,7 +1711,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Users",
+            '200': "ListUsers200Response",
             '403': "Notification",
             '500': "Notification",
         }
@@ -1782,7 +1795,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Users",
+            '200': "ListUsers200Response",
             '403': "Notification",
             '500': "Notification",
         }
@@ -1815,7 +1828,9 @@ class UserApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -1846,16 +1861,16 @@ class UserApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
         _auth_settings: List[str] = [
-            'Cookie', 
             'Basic', 
             'Header', 
             'Bearer'
@@ -1880,10 +1895,10 @@ class UserApi:
 
 
     @validate_call
-    def permit_user_team(
+    def permit_user_group(
         self,
         user_id: Annotated[StrictStr, Field(description="A user identifier or slug")],
-        user_team_params: Annotated[UserTeamParams, Field(description="The user team data to update")],
+        permit_user_group_request: Annotated[PermitUserGroupRequest, Field(description="The user group data to permit")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1897,13 +1912,13 @@ class UserApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Notification:
-        """Update team perms for user
+        """Update group perms for user
 
 
         :param user_id: A user identifier or slug (required)
         :type user_id: str
-        :param user_team_params: The user team data to update (required)
-        :type user_team_params: UserTeamParams
+        :param permit_user_group_request: The user group data to permit (required)
+        :type permit_user_group_request: PermitUserGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1926,9 +1941,9 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._permit_user_team_serialize(
+        _param = self._permit_user_group_serialize(
             user_id=user_id,
-            user_team_params=user_team_params,
+            permit_user_group_request=permit_user_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1955,10 +1970,10 @@ class UserApi:
 
 
     @validate_call
-    def permit_user_team_with_http_info(
+    def permit_user_group_with_http_info(
         self,
         user_id: Annotated[StrictStr, Field(description="A user identifier or slug")],
-        user_team_params: Annotated[UserTeamParams, Field(description="The user team data to update")],
+        permit_user_group_request: Annotated[PermitUserGroupRequest, Field(description="The user group data to permit")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1972,13 +1987,13 @@ class UserApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Notification]:
-        """Update team perms for user
+        """Update group perms for user
 
 
         :param user_id: A user identifier or slug (required)
         :type user_id: str
-        :param user_team_params: The user team data to update (required)
-        :type user_team_params: UserTeamParams
+        :param permit_user_group_request: The user group data to permit (required)
+        :type permit_user_group_request: PermitUserGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2001,9 +2016,9 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._permit_user_team_serialize(
+        _param = self._permit_user_group_serialize(
             user_id=user_id,
-            user_team_params=user_team_params,
+            permit_user_group_request=permit_user_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2030,10 +2045,10 @@ class UserApi:
 
 
     @validate_call
-    def permit_user_team_without_preload_content(
+    def permit_user_group_without_preload_content(
         self,
         user_id: Annotated[StrictStr, Field(description="A user identifier or slug")],
-        user_team_params: Annotated[UserTeamParams, Field(description="The user team data to update")],
+        permit_user_group_request: Annotated[PermitUserGroupRequest, Field(description="The user group data to permit")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2047,13 +2062,13 @@ class UserApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Update team perms for user
+        """Update group perms for user
 
 
         :param user_id: A user identifier or slug (required)
         :type user_id: str
-        :param user_team_params: The user team data to update (required)
-        :type user_team_params: UserTeamParams
+        :param permit_user_group_request: The user group data to permit (required)
+        :type permit_user_group_request: PermitUserGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2076,9 +2091,9 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._permit_user_team_serialize(
+        _param = self._permit_user_group_serialize(
             user_id=user_id,
-            user_team_params=user_team_params,
+            permit_user_group_request=permit_user_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2100,10 +2115,10 @@ class UserApi:
         return response_data.response
 
 
-    def _permit_user_team_serialize(
+    def _permit_user_group_serialize(
         self,
         user_id,
-        user_team_params,
+        permit_user_group_request,
         _request_auth,
         _content_type,
         _headers,
@@ -2119,7 +2134,9 @@ class UserApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -2129,16 +2146,17 @@ class UserApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if user_team_params is not None:
-            _body_params = user_team_params
+        if permit_user_group_request is not None:
+            _body_params = permit_user_group_request
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
         # set the HTTP header `Content-Type`
         if _content_type:
@@ -2156,7 +2174,6 @@ class UserApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'Cookie', 
             'Basic', 
             'Header', 
             'Bearer'
@@ -2164,7 +2181,7 @@ class UserApi:
 
         return self.api_client.param_serialize(
             method='PUT',
-            resource_path='/users/{user_id}/teams',
+            resource_path='/users/{user_id}/groups',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2401,7 +2418,9 @@ class UserApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -2414,16 +2433,16 @@ class UserApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
         _auth_settings: List[str] = [
-            'Cookie', 
             'Basic', 
             'Header', 
             'Bearer'
@@ -2451,7 +2470,7 @@ class UserApi:
     def update_user(
         self,
         user_id: Annotated[StrictStr, Field(description="A user identifier or slug")],
-        user: Annotated[User, Field(description="The user data to update")],
+        update_user_request: Annotated[UpdateUserRequest, Field(description="The user data to update")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2470,8 +2489,8 @@ class UserApi:
 
         :param user_id: A user identifier or slug (required)
         :type user_id: str
-        :param user: The user data to update (required)
-        :type user: User
+        :param update_user_request: The user data to update (required)
+        :type update_user_request: UpdateUserRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2496,7 +2515,7 @@ class UserApi:
 
         _param = self._update_user_serialize(
             user_id=user_id,
-            user=user,
+            update_user_request=update_user_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2525,7 +2544,7 @@ class UserApi:
     def update_user_with_http_info(
         self,
         user_id: Annotated[StrictStr, Field(description="A user identifier or slug")],
-        user: Annotated[User, Field(description="The user data to update")],
+        update_user_request: Annotated[UpdateUserRequest, Field(description="The user data to update")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2544,8 +2563,8 @@ class UserApi:
 
         :param user_id: A user identifier or slug (required)
         :type user_id: str
-        :param user: The user data to update (required)
-        :type user: User
+        :param update_user_request: The user data to update (required)
+        :type update_user_request: UpdateUserRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2570,7 +2589,7 @@ class UserApi:
 
         _param = self._update_user_serialize(
             user_id=user_id,
-            user=user,
+            update_user_request=update_user_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2599,7 +2618,7 @@ class UserApi:
     def update_user_without_preload_content(
         self,
         user_id: Annotated[StrictStr, Field(description="A user identifier or slug")],
-        user: Annotated[User, Field(description="The user data to update")],
+        update_user_request: Annotated[UpdateUserRequest, Field(description="The user data to update")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2618,8 +2637,8 @@ class UserApi:
 
         :param user_id: A user identifier or slug (required)
         :type user_id: str
-        :param user: The user data to update (required)
-        :type user: User
+        :param update_user_request: The user data to update (required)
+        :type update_user_request: UpdateUserRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2644,7 +2663,7 @@ class UserApi:
 
         _param = self._update_user_serialize(
             user_id=user_id,
-            user=user,
+            update_user_request=update_user_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2668,7 +2687,7 @@ class UserApi:
     def _update_user_serialize(
         self,
         user_id,
-        user,
+        update_user_request,
         _request_auth,
         _content_type,
         _headers,
@@ -2684,7 +2703,9 @@ class UserApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -2694,16 +2715,17 @@ class UserApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if user is not None:
-            _body_params = user
+        if update_user_request is not None:
+            _body_params = update_user_request
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
         # set the HTTP header `Content-Type`
         if _content_type:
@@ -2721,7 +2743,6 @@ class UserApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'Cookie', 
             'Basic', 
             'Header', 
             'Bearer'

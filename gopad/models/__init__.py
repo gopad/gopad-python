@@ -15,19 +15,27 @@
 
 
 # import models into model package
-from gopad.models.auth_login import AuthLogin
 from gopad.models.auth_token import AuthToken
 from gopad.models.auth_verify import AuthVerify
+from gopad.models.create_group_request import CreateGroupRequest
+from gopad.models.create_user_request import CreateUserRequest
+from gopad.models.delete_group_from_user_request import DeleteGroupFromUserRequest
+from gopad.models.delete_user_from_group_request import DeleteUserFromGroupRequest
+from gopad.models.group import Group
+from gopad.models.list_group_users200_response import ListGroupUsers200Response
+from gopad.models.list_groups200_response import ListGroups200Response
+from gopad.models.list_providers200_response import ListProviders200Response
+from gopad.models.list_user_groups200_response import ListUserGroups200Response
+from gopad.models.list_users200_response import ListUsers200Response
+from gopad.models.login_auth_request import LoginAuthRequest
 from gopad.models.notification import Notification
+from gopad.models.permit_group_user_request import PermitGroupUserRequest
+from gopad.models.permit_user_group_request import PermitUserGroupRequest
 from gopad.models.profile import Profile
-from gopad.models.team import Team
-from gopad.models.team_user_params import TeamUserParams
-from gopad.models.team_users import TeamUsers
-from gopad.models.teams import Teams
+from gopad.models.provider import Provider
+from gopad.models.update_profile_request import UpdateProfileRequest
+from gopad.models.update_user_request import UpdateUserRequest
 from gopad.models.user import User
 from gopad.models.user_auth import UserAuth
-from gopad.models.user_team import UserTeam
-from gopad.models.user_team_params import UserTeamParams
-from gopad.models.user_teams import UserTeams
-from gopad.models.users import Users
+from gopad.models.user_group import UserGroup
 from gopad.models.validation import Validation

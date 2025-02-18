@@ -40,8 +40,7 @@ class User(BaseModel):
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
     auths: Optional[List[UserAuth]] = None
-    teams: Optional[List[UserTeam]] = None
-    __properties: ClassVar[List[str]] = ["id", "username", "password", "email", "fullname", "profile", "admin", "active", "created_at", "updated_at", "auths", "teams"]
+    __properties: ClassVar[List[str]] = ["id", "username", "password", "email", "fullname", "profile", "admin", "active", "created_at", "updated_at", "auths"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -76,15 +75,11 @@ class User(BaseModel):
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
-        * OpenAPI `readOnly` fields are excluded.
-        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
-            "id",
             "created_at",
             "updated_at",
             "auths",
-            "teams",
         ])
 
         _dict = self.model_dump(
@@ -95,17 +90,10 @@ class User(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in auths (list)
         _items = []
         if self.auths:
-            for _item in self.auths:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_auths in self.auths:
+                if _item_auths:
+                    _items.append(_item_auths.to_dict())
             _dict['auths'] = _items
-        # override the default output from pydantic by calling `to_dict()` of each item in teams (list)
-        _items = []
-        if self.teams:
-            for _item in self.teams:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['teams'] = _items
         # set to None if username (nullable) is None
         # and model_fields_set contains the field
         if self.username is None and "username" in self.model_fields_set:
@@ -146,11 +134,6 @@ class User(BaseModel):
         if self.auths is None and "auths" in self.model_fields_set:
             _dict['auths'] = None
 
-        # set to None if teams (nullable) is None
-        # and model_fields_set contains the field
-        if self.teams is None and "teams" in self.model_fields_set:
-            _dict['teams'] = None
-
         return _dict
 
     @classmethod
@@ -173,12 +156,8 @@ class User(BaseModel):
             "active": obj.get("active"),
             "created_at": obj.get("created_at"),
             "updated_at": obj.get("updated_at"),
-            "auths": [UserAuth.from_dict(_item) for _item in obj["auths"]] if obj.get("auths") is not None else None,
-            "teams": [UserTeam.from_dict(_item) for _item in obj["teams"]] if obj.get("teams") is not None else None
+            "auths": [UserAuth.from_dict(_item) for _item in obj["auths"]] if obj.get("auths") is not None else None
         })
         return _obj
 
-from gopad.models.user_team import UserTeam
-# TODO: Rewrite to not use raise_errors
-User.model_rebuild(raise_errors=False)
 
