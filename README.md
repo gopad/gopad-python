@@ -13,7 +13,7 @@ For more information, please visit [https://gopad.eu](https://gopad.eu)
 
 ## Requirements
 
-Python 3.8+
+Python 3.7+
 
 ## Installation
 
