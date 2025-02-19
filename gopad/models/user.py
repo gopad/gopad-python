@@ -90,9 +90,9 @@ class User(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in auths (list)
         _items = []
         if self.auths:
-            for _item_auths in self.auths:
-                if _item_auths:
-                    _items.append(_item_auths.to_dict())
+            for _item in self.auths:
+                if _item:
+                    _items.append(_item.to_dict())
             _dict['auths'] = _items
         # set to None if username (nullable) is None
         # and model_fields_set contains the field
