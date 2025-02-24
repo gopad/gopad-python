@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.6.0](https://github.com/gopad/gopad-python/compare/v1.5.2...v1.6.0) (2025-02-24)
+
+
+### Features
+
+* automated openapi client update ([5172674](https://github.com/gopad/gopad-python/commit/51726747a929a7d54b3d08e306e35b6c21a9f735))
+* automated openapi client update ([93f4962](https://github.com/gopad/gopad-python/commit/93f49620222e26b8ede3f0bea8505e2c4bef80cd))
+
 ## [1.5.2](https://github.com/gopad/gopad-python/compare/v1.5.1...v1.5.2) (2025-01-27)
 
 
