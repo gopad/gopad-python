@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.1](https://github.com/gopad/gopad-python/compare/v1.6.0...v1.6.1) (2025-03-03)
+
+
+### Bugfixes
+
+* **deps:** update dependency pytest to v8.3.5 ([#86](https://github.com/gopad/gopad-python/issues/86)) ([5e337ea](https://github.com/gopad/gopad-python/commit/5e337ea04c6ed0709bd9ded8662dc25127bef5c9))
+
 ## [1.6.0](https://github.com/gopad/gopad-python/compare/v1.5.2...v1.6.0) (2025-02-24)
 
 
