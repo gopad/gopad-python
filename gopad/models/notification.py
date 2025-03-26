@@ -3,7 +3,7 @@
 """
     Gopad OpenAPI
 
-    API definition for Gopad, Etherpad for markdown with go
+    API definition for Gopad, Etherpad for markdown with Go
 
     The version of the OpenAPI document: 1.0.0-alpha1
     Contact: gopad@webhippie.de
@@ -75,9 +75,9 @@ class Notification(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in errors (list)
         _items = []
         if self.errors:
-            for _item in self.errors:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_errors in self.errors:
+                if _item_errors:
+                    _items.append(_item_errors.to_dict())
             _dict['errors'] = _items
         return _dict
 

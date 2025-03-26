@@ -3,7 +3,7 @@
 """
     Gopad OpenAPI
 
-    API definition for Gopad, Etherpad for markdown with go
+    API definition for Gopad, Etherpad for markdown with Go
 
     The version of the OpenAPI document: 1.0.0-alpha1
     Contact: gopad@webhippie.de
@@ -98,16 +98,16 @@ class Profile(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in auths (list)
         _items = []
         if self.auths:
-            for _item in self.auths:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_auths in self.auths:
+                if _item_auths:
+                    _items.append(_item_auths.to_dict())
             _dict['auths'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in groups (list)
         _items = []
         if self.groups:
-            for _item in self.groups:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_groups in self.groups:
+                if _item_groups:
+                    _items.append(_item_groups.to_dict())
             _dict['groups'] = _items
         # set to None if username (nullable) is None
         # and model_fields_set contains the field

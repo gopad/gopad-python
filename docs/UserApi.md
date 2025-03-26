@@ -105,6 +105,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Plain success message |  -  |
+**400** | Failed to parse request |  -  |
 **403** | User is not authorized |  -  |
 **404** | Resource not found |  -  |
 **412** | Resource is already attached |  -  |
@@ -201,6 +202,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The details for an user |  -  |
+**400** | Failed to parse request |  -  |
 **403** | User is not authorized |  -  |
 **422** | Failed to validate request |  -  |
 **500** | Some internal server error |  -  |
@@ -391,6 +393,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Plain success message |  -  |
+**400** | Failed to parse request |  -  |
 **403** | User is not authorized |  -  |
 **404** | Resource not found |  -  |
 **412** | Resource is not attached |  -  |
@@ -450,7 +453,7 @@ with gopad.ApiClient(configuration) as api_client:
     user_id = 'user_id_example' # str | A user identifier or slug
     search = 'search_example' # str | Search query (optional)
     sort = 'sort_example' # str | Sorting column (optional)
-    order = 'asc' # str | Sorting order (optional) (default to 'asc')
+    order = asc # str | Sorting order (optional) (default to asc)
     limit = 100 # int | Paging limit (optional) (default to 100)
     offset = 0 # int | Paging offset (optional) (default to 0)
 
@@ -473,7 +476,7 @@ Name | Type | Description  | Notes
  **user_id** | **str**| A user identifier or slug | 
  **search** | **str**| Search query | [optional] 
  **sort** | **str**| Sorting column | [optional] 
- **order** | **str**| Sorting order | [optional] [default to &#39;asc&#39;]
+ **order** | **str**| Sorting order | [optional] [default to asc]
  **limit** | **int**| Paging limit | [optional] [default to 100]
  **offset** | **int**| Paging offset | [optional] [default to 0]
 
@@ -552,7 +555,7 @@ with gopad.ApiClient(configuration) as api_client:
     api_instance = gopad.UserApi(api_client)
     search = 'search_example' # str | Search query (optional)
     sort = 'sort_example' # str | Sorting column (optional)
-    order = 'asc' # str | Sorting order (optional) (default to 'asc')
+    order = asc # str | Sorting order (optional) (default to asc)
     limit = 100 # int | Paging limit (optional) (default to 100)
     offset = 0 # int | Paging offset (optional) (default to 0)
 
@@ -574,7 +577,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **search** | **str**| Search query | [optional] 
  **sort** | **str**| Sorting column | [optional] 
- **order** | **str**| Sorting order | [optional] [default to &#39;asc&#39;]
+ **order** | **str**| Sorting order | [optional] [default to asc]
  **limit** | **int**| Paging limit | [optional] [default to 100]
  **offset** | **int**| Paging offset | [optional] [default to 0]
 
@@ -691,6 +694,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Plain success message |  -  |
+**400** | Failed to parse request |  -  |
 **403** | User is not authorized |  -  |
 **404** | Resource not found |  -  |
 **412** | Resource is not attached |  -  |
@@ -882,6 +886,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The details for an user |  -  |
+**400** | Failed to parse request |  -  |
 **403** | User is not authorized |  -  |
 **404** | Resource not found |  -  |
 **422** | Failed to validate request |  -  |

@@ -3,7 +3,7 @@
 """
     Gopad OpenAPI
 
-    API definition for Gopad, Etherpad for markdown with go
+    API definition for Gopad, Etherpad for markdown with Go
 
     The version of the OpenAPI document: 1.0.0-alpha1
     Contact: gopad@webhippie.de
@@ -74,9 +74,9 @@ class ListProviders200Response(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in providers (list)
         _items = []
         if self.providers:
-            for _item in self.providers:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_providers in self.providers:
+                if _item_providers:
+                    _items.append(_item_providers.to_dict())
             _dict['providers'] = _items
         return _dict
 

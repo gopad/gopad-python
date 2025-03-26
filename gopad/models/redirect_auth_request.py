@@ -18,19 +18,17 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import BaseModel, ConfigDict, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
-class AuthVerify(BaseModel):
+class RedirectAuthRequest(BaseModel):
     """
-    AuthVerify
+    RedirectAuthRequest
     """ # noqa: E501
-    username: StrictStr
-    created_at: Optional[datetime] = None
-    __properties: ClassVar[List[str]] = ["username", "created_at"]
+    token: StrictStr
+    __properties: ClassVar[List[str]] = ["token"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -50,7 +48,7 @@ class AuthVerify(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of AuthVerify from a JSON string"""
+        """Create an instance of RedirectAuthRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -62,12 +60,8 @@ class AuthVerify(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
-        * OpenAPI `readOnly` fields are excluded.
-        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
-            "username",
-            "created_at",
         ])
 
         _dict = self.model_dump(
@@ -75,16 +69,11 @@ class AuthVerify(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if created_at (nullable) is None
-        # and model_fields_set contains the field
-        if self.created_at is None and "created_at" in self.model_fields_set:
-            _dict['created_at'] = None
-
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of AuthVerify from a dict"""
+        """Create an instance of RedirectAuthRequest from a dict"""
         if obj is None:
             return None
 
@@ -92,8 +81,7 @@ class AuthVerify(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "username": obj.get("username"),
-            "created_at": obj.get("created_at")
+            "token": obj.get("token")
         })
         return _obj
 

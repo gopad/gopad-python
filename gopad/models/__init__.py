@@ -4,7 +4,7 @@
 """
     Gopad OpenAPI
 
-    API definition for Gopad, Etherpad for markdown with go
+    API definition for Gopad, Etherpad for markdown with Go
 
     The version of the OpenAPI document: 1.0.0-alpha1
     Contact: gopad@webhippie.de
@@ -33,6 +33,7 @@ from gopad.models.permit_group_user_request import PermitGroupUserRequest
 from gopad.models.permit_user_group_request import PermitUserGroupRequest
 from gopad.models.profile import Profile
 from gopad.models.provider import Provider
+from gopad.models.redirect_auth_request import RedirectAuthRequest
 from gopad.models.update_profile_request import UpdateProfileRequest
 from gopad.models.update_user_request import UpdateUserRequest
 from gopad.models.user import User

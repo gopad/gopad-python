@@ -21,6 +21,7 @@ docs/PermitUserGroupRequest.md
 docs/Profile.md
 docs/ProfileApi.md
 docs/Provider.md
+docs/RedirectAuthRequest.md
 docs/UpdateProfileRequest.md
 docs/UpdateUserRequest.md
 docs/User.md
@@ -57,6 +58,7 @@ gopad/models/permit_group_user_request.py
 gopad/models/permit_user_group_request.py
 gopad/models/profile.py
 gopad/models/provider.py
+gopad/models/redirect_auth_request.py
 gopad/models/update_profile_request.py
 gopad/models/update_user_request.py
 gopad/models/user.py
@@ -66,3 +68,4 @@ gopad/models/validation.py
 gopad/py.typed
 gopad/rest.py
 test/__init__.py
+test/test_redirect_auth_request.py

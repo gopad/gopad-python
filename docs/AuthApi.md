@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**callback_provider**](AuthApi.md#callback_provider) | **GET** /auth/{provider}/callback | Callback to parse the defined provider
 [**list_providers**](AuthApi.md#list_providers) | **GET** /auth/providers | Fetch the available auth providers
 [**login_auth**](AuthApi.md#login_auth) | **POST** /auth/login | Authenticate an user by credentials
+[**redirect_auth**](AuthApi.md#redirect_auth) | **POST** /auth/redirect | Retrieve real token after redirect
 [**refresh_auth**](AuthApi.md#refresh_auth) | **GET** /auth/refresh | Refresh an auth token before it expires
 [**request_provider**](AuthApi.md#request_provider) | **GET** /auth/{provider}/request | Request the redirect to defined provider
 [**verify_auth**](AuthApi.md#verify_auth) | **GET** /auth/verify | Verify validity for an authentication token
@@ -208,7 +209,78 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Generated token with expire date |  -  |
+**400** | Failed to parse request |  -  |
 **401** | Unauthorized with wrong credentials |  -  |
+**500** | Some internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **redirect_auth**
+> AuthToken redirect_auth(redirect_auth_request)
+
+Retrieve real token after redirect
+
+### Example
+
+
+```python
+import gopad
+from gopad.models.auth_token import AuthToken
+from gopad.models.redirect_auth_request import RedirectAuthRequest
+from gopad.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://try.gopad.eu/api/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = gopad.Configuration(
+    host = "https://try.gopad.eu/api/v1"
+)
+
+
+# Enter a context with an instance of the API client
+with gopad.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = gopad.AuthApi(api_client)
+    redirect_auth_request = gopad.RedirectAuthRequest() # RedirectAuthRequest | The redirect token to authenticate
+
+    try:
+        # Retrieve real token after redirect
+        api_response = api_instance.redirect_auth(redirect_auth_request)
+        print("The response of AuthApi->redirect_auth:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling AuthApi->redirect_auth: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **redirect_auth_request** | [**RedirectAuthRequest**](RedirectAuthRequest.md)| The redirect token to authenticate | 
+
+### Return type
+
+[**AuthToken**](AuthToken.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Generated token never expiring |  -  |
+**400** | Failed to parse request |  -  |
+**401** | Failed to generate or validate token |  -  |
 **500** | Some internal server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

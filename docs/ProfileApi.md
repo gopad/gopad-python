@@ -273,6 +273,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The current profile details |  -  |
+**400** | Failed to parse request |  -  |
 **403** | User is not authorized |  -  |
 **422** | Failed to validate request |  -  |
 **500** | Some internal server error |  -  |
