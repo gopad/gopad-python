@@ -14,7 +14,7 @@ SPEC_DOWNLOAD=${SPEC:-https://dl.gopad.eu/openapi/${SPEC_VERSION}.yaml}
 
 pushd "${ROOT}" >/dev/null
     echo "> deleting library folder"
-    rm -rf gopad
+    rm -rf gopad openapitools.json
 
     openapi-generator-cli \
         generate \
