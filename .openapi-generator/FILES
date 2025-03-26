@@ -68,4 +68,3 @@ gopad/models/validation.py
 gopad/py.typed
 gopad/rest.py
 test/__init__.py
-test/test_redirect_auth_request.py
