@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.7.1](https://github.com/gopad/gopad-python/compare/v1.7.0...v1.7.1) (2025-04-07)
+
+
+### Bugfixes
+
+* **deps:** update dependency pydantic to v2.11.2 ([#93](https://github.com/gopad/gopad-python/issues/93)) ([4aeb9a9](https://github.com/gopad/gopad-python/commit/4aeb9a9e9ac111193988af8856a820eb88d406f1))
+* **deps:** update dependency typing-extensions to v4.13.1 ([#94](https://github.com/gopad/gopad-python/issues/94)) ([c654b66](https://github.com/gopad/gopad-python/commit/c654b669e736383686e652e22f262343caf30103))
+
 ## [1.7.0](https://github.com/gopad/gopad-python/compare/v1.6.1...v1.7.0) (2025-03-31)
 
 
