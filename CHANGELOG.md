@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.8.0](https://github.com/gopad/gopad-python/compare/v1.7.1...v1.8.0) (2025-04-14)
+
+
+### Features
+
+* **deps:** update dependency urllib3 to v2.4.0 ([#97](https://github.com/gopad/gopad-python/issues/97)) ([fadfbef](https://github.com/gopad/gopad-python/commit/fadfbef941a5674e453887036790e9138836335b))
+
+
+### Bugfixes
+
+* **deps:** update dependency pydantic to v2.11.3 ([#95](https://github.com/gopad/gopad-python/issues/95)) ([2d23095](https://github.com/gopad/gopad-python/commit/2d23095d6fad0699cc5fa867ec6af7e2d7193727))
+* **deps:** update dependency typing-extensions to v4.13.2 ([#96](https://github.com/gopad/gopad-python/issues/96)) ([383c394](https://github.com/gopad/gopad-python/commit/383c394835e81c2fac01a0da7d2556059fa65138))
+
 ## [1.7.1](https://github.com/gopad/gopad-python/compare/v1.7.0...v1.7.1) (2025-04-07)
 
 
