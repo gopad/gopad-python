@@ -166,5 +166,8 @@ labels:
   - name: outdated
     color: cccccc
     description: This is out of scope and outdated
+  - name: openapi
+    color: 1f385c
+    description: Generated new SDK version from OpenAPI
 
 ...
