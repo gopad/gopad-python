@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.9.0](https://github.com/gopad/gopad-python/compare/v1.8.0...v1.9.0) (2025-05-05)
+
+
+### Features
+
+* automated openapi client update ([9c30f8c](https://github.com/gopad/gopad-python/commit/9c30f8c02f16f389fc0f48f59445c5bc755c8294))
+
+
+### Bugfixes
+
+* **deps:** update dependency pydantic to v2.11.4 ([#99](https://github.com/gopad/gopad-python/issues/99)) ([bb719c3](https://github.com/gopad/gopad-python/commit/bb719c3d484193106e88738182ad7a734df5674a))
+
 ## [1.8.0](https://github.com/gopad/gopad-python/compare/v1.7.1...v1.8.0) (2025-04-14)
 
 
