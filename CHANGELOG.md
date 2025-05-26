@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.9.2](https://github.com/gopad/gopad-python/compare/v1.9.1...v1.9.2) (2025-05-26)
+
+
+### Bugfixes
+
+* **deps:** update dependency pydantic to v2.11.5 ([#101](https://github.com/gopad/gopad-python/issues/101)) ([ba3a68c](https://github.com/gopad/gopad-python/commit/ba3a68c6276d744e6fdaf13204ca8b8342cc53d2))
+
 ## [1.9.1](https://github.com/gopad/gopad-python/compare/v1.9.0...v1.9.1) (2025-05-19)
 
 
