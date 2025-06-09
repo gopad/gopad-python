@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.10.0](https://github.com/gopad/gopad-python/compare/v1.9.2...v1.10.0) (2025-06-09)
+
+
+### Features
+
+* **deps:** update dependency pytest to v8.4.0 ([#102](https://github.com/gopad/gopad-python/issues/102)) ([f1e482b](https://github.com/gopad/gopad-python/commit/f1e482b7bc8a6aba1af5eaddf043d50b0b5752fe))
+* **deps:** update dependency typing-extensions to v4.14.0 ([#103](https://github.com/gopad/gopad-python/issues/103)) ([689a0ba](https://github.com/gopad/gopad-python/commit/689a0ba21750c095cde442a1d8ad4d97b2e943a1))
+
 ## [1.9.2](https://github.com/gopad/gopad-python/compare/v1.9.1...v1.9.2) (2025-05-26)
 
 
