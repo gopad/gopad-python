@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.11.0](https://github.com/gopad/gopad-python/compare/v1.10.1...v1.11.0) (2025-06-23)
+
+
+### Features
+
+* **deps:** update dependency urllib3 to v2.5.0 ([#107](https://github.com/gopad/gopad-python/issues/107)) ([6efd904](https://github.com/gopad/gopad-python/commit/6efd904617528a76e457a1ed6ef17ab26e615597))
+
+
+### Bugfixes
+
+* **deps:** update dependency pytest to v8.4.1 ([#106](https://github.com/gopad/gopad-python/issues/106)) ([7585867](https://github.com/gopad/gopad-python/commit/7585867fc93307e24866d62c1d6fea6082dd052f))
+
 ## [1.10.1](https://github.com/gopad/gopad-python/compare/v1.10.0...v1.10.1) (2025-06-16)
 
 
