@@ -20,19 +20,19 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictInt
 from typing import Any, ClassVar, Dict, List
-from gopad.models.group import Group
+from gopad.models.user import User
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ListGroups200Response(BaseModel):
+class InlineObject3(BaseModel):
     """
-    ListGroups200Response
+    InlineObject3
     """ # noqa: E501
     total: StrictInt
     limit: StrictInt
     offset: StrictInt
-    groups: List[Group]
-    __properties: ClassVar[List[str]] = ["total", "limit", "offset", "groups"]
+    users: List[User]
+    __properties: ClassVar[List[str]] = ["total", "limit", "offset", "users"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -52,7 +52,7 @@ class ListGroups200Response(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ListGroups200Response from a JSON string"""
+        """Create an instance of InlineObject3 from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -73,18 +73,18 @@ class ListGroups200Response(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in groups (list)
+        # override the default output from pydantic by calling `to_dict()` of each item in users (list)
         _items = []
-        if self.groups:
-            for _item_groups in self.groups:
-                if _item_groups:
-                    _items.append(_item_groups.to_dict())
-            _dict['groups'] = _items
+        if self.users:
+            for _item_users in self.users:
+                if _item_users:
+                    _items.append(_item_users.to_dict())
+            _dict['users'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ListGroups200Response from a dict"""
+        """Create an instance of InlineObject3 from a dict"""
         if obj is None:
             return None
 
@@ -95,7 +95,7 @@ class ListGroups200Response(BaseModel):
             "total": obj.get("total"),
             "limit": obj.get("limit"),
             "offset": obj.get("offset"),
-            "groups": [Group.from_dict(_item) for _item in obj["groups"]] if obj.get("groups") is not None else None
+            "users": [User.from_dict(_item) for _item in obj["users"]] if obj.get("users") is not None else None
         })
         return _obj
 

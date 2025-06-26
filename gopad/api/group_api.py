@@ -23,8 +23,8 @@ from typing_extensions import Annotated
 from gopad.models.create_group_request import CreateGroupRequest
 from gopad.models.delete_group_from_user_request import DeleteGroupFromUserRequest
 from gopad.models.group import Group
-from gopad.models.list_group_users200_response import ListGroupUsers200Response
-from gopad.models.list_groups200_response import ListGroups200Response
+from gopad.models.inline_object1 import InlineObject1
+from gopad.models.inline_object2 import InlineObject2
 from gopad.models.notification import Notification
 from gopad.models.permit_group_user_request import PermitGroupUserRequest
 
@@ -1233,7 +1233,7 @@ class GroupApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ListGroupUsers200Response:
+    ) -> InlineObject2:
         """Fetch all users attached to group
 
 
@@ -1285,7 +1285,7 @@ class GroupApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ListGroupUsers200Response",
+            '200': "InlineObject2",
             '403': "Notification",
             '404': "Notification",
             '500': "Notification",
@@ -1322,7 +1322,7 @@ class GroupApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ListGroupUsers200Response]:
+    ) -> ApiResponse[InlineObject2]:
         """Fetch all users attached to group
 
 
@@ -1374,7 +1374,7 @@ class GroupApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ListGroupUsers200Response",
+            '200': "InlineObject2",
             '403': "Notification",
             '404': "Notification",
             '500': "Notification",
@@ -1463,7 +1463,7 @@ class GroupApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ListGroupUsers200Response",
+            '200': "InlineObject2",
             '403': "Notification",
             '404': "Notification",
             '500': "Notification",
@@ -1586,7 +1586,7 @@ class GroupApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ListGroups200Response:
+    ) -> InlineObject1:
         """Fetch all available groups
 
 
@@ -1635,7 +1635,7 @@ class GroupApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ListGroups200Response",
+            '200': "InlineObject1",
             '403': "Notification",
             '500': "Notification",
         }
@@ -1670,7 +1670,7 @@ class GroupApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ListGroups200Response]:
+    ) -> ApiResponse[InlineObject1]:
         """Fetch all available groups
 
 
@@ -1719,7 +1719,7 @@ class GroupApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ListGroups200Response",
+            '200': "InlineObject1",
             '403': "Notification",
             '500': "Notification",
         }
@@ -1803,7 +1803,7 @@ class GroupApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ListGroups200Response",
+            '200': "InlineObject1",
             '403': "Notification",
             '500': "Notification",
         }

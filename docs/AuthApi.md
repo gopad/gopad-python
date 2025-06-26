@@ -84,7 +84,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_providers**
-> ListProviders200Response list_providers()
+> InlineObject list_providers()
 
 Fetch the available auth providers
 
@@ -93,7 +93,7 @@ Fetch the available auth providers
 
 ```python
 import gopad
-from gopad.models.list_providers200_response import ListProviders200Response
+from gopad.models.inline_object import InlineObject
 from gopad.rest import ApiException
 from pprint import pprint
 
@@ -126,7 +126,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**ListProviders200Response**](ListProviders200Response.md)
+[**InlineObject**](InlineObject.md)
 
 ### Authorization
 
