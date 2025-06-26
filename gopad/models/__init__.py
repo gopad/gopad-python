@@ -22,11 +22,11 @@ from gopad.models.create_user_request import CreateUserRequest
 from gopad.models.delete_group_from_user_request import DeleteGroupFromUserRequest
 from gopad.models.delete_user_from_group_request import DeleteUserFromGroupRequest
 from gopad.models.group import Group
-from gopad.models.list_group_users200_response import ListGroupUsers200Response
-from gopad.models.list_groups200_response import ListGroups200Response
-from gopad.models.list_providers200_response import ListProviders200Response
-from gopad.models.list_user_groups200_response import ListUserGroups200Response
-from gopad.models.list_users200_response import ListUsers200Response
+from gopad.models.inline_object import InlineObject
+from gopad.models.inline_object1 import InlineObject1
+from gopad.models.inline_object2 import InlineObject2
+from gopad.models.inline_object3 import InlineObject3
+from gopad.models.inline_object4 import InlineObject4
 from gopad.models.login_auth_request import LoginAuthRequest
 from gopad.models.notification import Notification
 from gopad.models.permit_group_user_request import PermitGroupUserRequest
