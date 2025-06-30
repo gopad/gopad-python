@@ -3,7 +3,7 @@
 """
     Gopad OpenAPI
 
-    API definition for Gopad, Etherpad for markdown with go
+    API definition for Gopad, Etherpad for markdown with Go
 
     The version of the OpenAPI document: 1.0.0-alpha1
     Contact: gopad@webhippie.de
@@ -45,6 +45,13 @@ class TestAuthApi(unittest.TestCase):
         """Test case for login_auth
 
         Authenticate an user by credentials
+        """
+        pass
+
+    def test_redirect_auth(self) -> None:
+        """Test case for redirect_auth
+
+        Retrieve real token after redirect
         """
         pass
 
