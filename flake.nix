@@ -66,7 +66,7 @@
                 languages = {
                   python = {
                     enable = true;
-                    package = pkgs.python313;
+                    package = pkgs.python312;
 
                     poetry = {
                       enable = true;
