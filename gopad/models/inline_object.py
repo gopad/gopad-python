@@ -20,19 +20,17 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictInt
 from typing import Any, ClassVar, Dict, List
-from gopad.models.user import User
+from gopad.models.provider import Provider
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ListUsers200Response(BaseModel):
+class InlineObject(BaseModel):
     """
-    ListUsers200Response
+    InlineObject
     """ # noqa: E501
     total: StrictInt
-    limit: StrictInt
-    offset: StrictInt
-    users: List[User]
-    __properties: ClassVar[List[str]] = ["total", "limit", "offset", "users"]
+    providers: List[Provider]
+    __properties: ClassVar[List[str]] = ["total", "providers"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -52,7 +50,7 @@ class ListUsers200Response(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ListUsers200Response from a JSON string"""
+        """Create an instance of InlineObject from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -73,18 +71,18 @@ class ListUsers200Response(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in users (list)
+        # override the default output from pydantic by calling `to_dict()` of each item in providers (list)
         _items = []
-        if self.users:
-            for _item_users in self.users:
-                if _item_users:
-                    _items.append(_item_users.to_dict())
-            _dict['users'] = _items
+        if self.providers:
+            for _item_providers in self.providers:
+                if _item_providers:
+                    _items.append(_item_providers.to_dict())
+            _dict['providers'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ListUsers200Response from a dict"""
+        """Create an instance of InlineObject from a dict"""
         if obj is None:
             return None
 
@@ -93,9 +91,7 @@ class ListUsers200Response(BaseModel):
 
         _obj = cls.model_validate({
             "total": obj.get("total"),
-            "limit": obj.get("limit"),
-            "offset": obj.get("offset"),
-            "users": [User.from_dict(_item) for _item in obj["users"]] if obj.get("users") is not None else None
+            "providers": [Provider.from_dict(_item) for _item in obj["providers"]] if obj.get("providers") is not None else None
         })
         return _obj
 

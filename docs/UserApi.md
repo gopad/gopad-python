@@ -402,7 +402,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_user_groups**
-> ListUserGroups200Response list_user_groups(user_id, search=search, sort=sort, order=order, limit=limit, offset=offset)
+> InlineObject4 list_user_groups(user_id, search=search, sort=sort, order=order, limit=limit, offset=offset)
 
 Fetch all groups attached to user
 
@@ -414,7 +414,7 @@ Fetch all groups attached to user
 
 ```python
 import gopad
-from gopad.models.list_user_groups200_response import ListUserGroups200Response
+from gopad.models.inline_object4 import InlineObject4
 from gopad.rest import ApiException
 from pprint import pprint
 
@@ -482,7 +482,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListUserGroups200Response**](ListUserGroups200Response.md)
+[**InlineObject4**](InlineObject4.md)
 
 ### Authorization
 
@@ -505,7 +505,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_users**
-> ListUsers200Response list_users(search=search, sort=sort, order=order, limit=limit, offset=offset)
+> InlineObject3 list_users(search=search, sort=sort, order=order, limit=limit, offset=offset)
 
 Fetch all available users
 
@@ -517,7 +517,7 @@ Fetch all available users
 
 ```python
 import gopad
-from gopad.models.list_users200_response import ListUsers200Response
+from gopad.models.inline_object3 import InlineObject3
 from gopad.rest import ApiException
 from pprint import pprint
 
@@ -583,7 +583,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListUsers200Response**](ListUsers200Response.md)
+[**InlineObject3**](InlineObject3.md)
 
 ### Authorization
 

@@ -19,18 +19,22 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, StrictInt
-from typing import Any, ClassVar, Dict, List
-from gopad.models.provider import Provider
+from typing import Any, ClassVar, Dict, List, Optional
+from gopad.models.group import Group
+from gopad.models.user_group import UserGroup
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ListProviders200Response(BaseModel):
+class InlineObject2(BaseModel):
     """
-    ListProviders200Response
+    InlineObject2
     """ # noqa: E501
     total: StrictInt
-    providers: List[Provider]
-    __properties: ClassVar[List[str]] = ["total", "providers"]
+    limit: StrictInt
+    offset: StrictInt
+    group: Optional[Group] = None
+    users: List[UserGroup]
+    __properties: ClassVar[List[str]] = ["total", "limit", "offset", "group", "users"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -50,7 +54,7 @@ class ListProviders200Response(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ListProviders200Response from a JSON string"""
+        """Create an instance of InlineObject2 from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -71,18 +75,21 @@ class ListProviders200Response(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in providers (list)
+        # override the default output from pydantic by calling `to_dict()` of group
+        if self.group:
+            _dict['group'] = self.group.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in users (list)
         _items = []
-        if self.providers:
-            for _item_providers in self.providers:
-                if _item_providers:
-                    _items.append(_item_providers.to_dict())
-            _dict['providers'] = _items
+        if self.users:
+            for _item_users in self.users:
+                if _item_users:
+                    _items.append(_item_users.to_dict())
+            _dict['users'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ListProviders200Response from a dict"""
+        """Create an instance of InlineObject2 from a dict"""
         if obj is None:
             return None
 
@@ -91,7 +98,10 @@ class ListProviders200Response(BaseModel):
 
         _obj = cls.model_validate({
             "total": obj.get("total"),
-            "providers": [Provider.from_dict(_item) for _item in obj["providers"]] if obj.get("providers") is not None else None
+            "limit": obj.get("limit"),
+            "offset": obj.get("offset"),
+            "group": Group.from_dict(obj["group"]) if obj.get("group") is not None else None,
+            "users": [UserGroup.from_dict(_item) for _item in obj["users"]] if obj.get("users") is not None else None
         })
         return _obj
 
