@@ -22,9 +22,6 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install generator
-        run: npm install @openapitools/openapi-generator-cli -g
-
       - name: Run generate
         run: bash hack/generate-client.sh
 

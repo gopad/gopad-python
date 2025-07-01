@@ -10,3 +10,6 @@ dist/
 
 .pre-commit-config.yaml
 openapitools.json
+
+hack/wrapped-client.sh
+hack/openapi-generator-cli-*.jar
