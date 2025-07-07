@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.12.0](https://github.com/gopad/gopad-python/compare/v1.11.0...v1.12.0) (2025-07-07)
+
+
+### Features
+
+* upgrade all definitions ([9e6b3fd](https://github.com/gopad/gopad-python/commit/9e6b3fd3d8204477ed594bef9ea921c42a8597d4))
+
+
+### Bugfixes
+
+* **deps:** update dependency typing-extensions to v4.14.1 ([#114](https://github.com/gopad/gopad-python/issues/114)) ([f5269df](https://github.com/gopad/gopad-python/commit/f5269df4f0d8c1a4ca4b27668a7800a4cfb5c8d3))
+* downgrade python to 3.12 ([e15c7fb](https://github.com/gopad/gopad-python/commit/e15c7fb8d448898028d173eaa45d8dd278659ab2))
+* get all tests working again ([451adfb](https://github.com/gopad/gopad-python/commit/451adfb3d590c5f8dbaab2bbe4571a14e1355cb1))
+
 ## [1.11.0](https://github.com/gopad/gopad-python/compare/v1.10.1...v1.11.0) (2025-06-23)
 
 
