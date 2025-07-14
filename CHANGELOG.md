@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.12.1](https://github.com/gopad/gopad-python/compare/v1.12.0...v1.12.1) (2025-07-14)
+
+
+### Bugfixes
+
+* **deps:** update dependency types-python-dateutil to v2.9.0.20250708 ([#115](https://github.com/gopad/gopad-python/issues/115)) ([64146cd](https://github.com/gopad/gopad-python/commit/64146cdebfc65315d07b5a757d16311201738834))
+
 ## [1.12.0](https://github.com/gopad/gopad-python/compare/v1.11.0...v1.12.0) (2025-07-07)
 
 
