@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.13.0](https://github.com/gopad/gopad-python/compare/v1.12.1...v1.13.0) (2025-08-04)
+
+
+### Features
+
+* **deps:** update dependency build to v1.3.0 ([#116](https://github.com/gopad/gopad-python/issues/116)) ([abfb8d3](https://github.com/gopad/gopad-python/commit/abfb8d30f534ab985aecd0f513447ab2a34839f6))
+
 ## [1.12.1](https://github.com/gopad/gopad-python/compare/v1.12.0...v1.12.1) (2025-07-14)
 
 
