@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.14.0](https://github.com/gopad/gopad-python/compare/v1.13.2...v1.14.0) (2025-09-01)
+
+
+### Features
+
+* **deps:** update dependency typing-extensions to v4.15.0 ([#120](https://github.com/gopad/gopad-python/issues/120)) ([a6bca76](https://github.com/gopad/gopad-python/commit/a6bca768c684078bd5af51d485b7396af06beb9d))
+
 ## [1.13.2](https://github.com/gopad/gopad-python/compare/v1.13.1...v1.13.2) (2025-08-25)
 
 
