@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "1.15.1"
+__version__ = "1.15.2"
 
 # import apis into sdk package
 from gopad.api.auth_api import AuthApi
