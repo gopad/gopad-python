@@ -208,6 +208,7 @@
                 "message": "chore: release ${nextRelease.version}",
                 "assets": [
                     "CHANGELOG.md",
+                    ".github/RELEASE",
                     "pyproject.toml",
                     "openapi.yml",
                     "README.md",
