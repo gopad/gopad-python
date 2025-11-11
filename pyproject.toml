@@ -13,7 +13,6 @@ classifiers = [
   "Natural Language :: English",
   "Operating System :: POSIX",
   "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
@@ -43,7 +42,7 @@ include = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.10"
 
 urllib3 = ">= 2.2.2"
 python-dateutil = ">=2.8.2"
