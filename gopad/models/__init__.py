@@ -13,7 +13,6 @@
     Do not edit the class manually.
 """  # noqa: E501
 
-
 # import models into model package
 from gopad.models.auth_token import AuthToken
 from gopad.models.auth_verify import AuthVerify
@@ -40,3 +39,4 @@ from gopad.models.user import User
 from gopad.models.user_auth import UserAuth
 from gopad.models.user_group import UserGroup
 from gopad.models.validation import Validation
+
