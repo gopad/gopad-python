@@ -19,7 +19,7 @@ pushd "${ROOT}" >/dev/null
     echo "> deleting library folder"
     rm -rf gopad openapitools.json
 
-    OPENAPI_GENERATOR_VERSION=7.13.0 "${ROOT}/hack/wrapped-client.sh" \
+    OPENAPI_GENERATOR_VERSION=7.17.0 "${ROOT}/hack/wrapped-client.sh" \
         generate \
         -c openapi.yml \
         -g python \
