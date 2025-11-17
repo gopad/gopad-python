@@ -1,5 +1,24 @@
 # Changelog
 
+## [2.0.0](https://github.com/gopad/gopad-python/compare/v1.15.2...v2.0.0) (2025-11-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* increase minimum python version to 3.10
+
+### Features
+
+* automated openapi client update ([64bdc6a](https://github.com/gopad/gopad-python/commit/64bdc6a8420049c1a94402e68bac418b70c5e258))
+* increase minimum python version to 3.10 ([0749e89](https://github.com/gopad/gopad-python/commit/0749e89420b5c052e3d32bc9d3c69df7c2951920))
+* **major:** update dependency pytest to v9 ([#137](https://github.com/gopad/gopad-python/issues/137)) ([c511227](https://github.com/gopad/gopad-python/commit/c511227f82545ee83b6275ec56bc5e10fd1e6082))
+
+
+### Bugfixes
+
+* **patch:** update dependency pytest to v9.0.1 ([#139](https://github.com/gopad/gopad-python/issues/139)) ([3fe63e0](https://github.com/gopad/gopad-python/commit/3fe63e0770f16fdcff1895d1de0c92dbd73d6af6))
+* **patch:** update dependency types-python-dateutil to v2.9.0.20251115 ([#141](https://github.com/gopad/gopad-python/issues/141)) ([38b51e2](https://github.com/gopad/gopad-python/commit/38b51e2cfe84c7276cfdfc8689ca21b499cc9a87))
+
 ## [1.15.2](https://github.com/gopad/gopad-python/compare/v1.15.1...v1.15.2) (2025-11-10)
 
 
