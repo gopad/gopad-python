@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.2](https://github.com/gopad/gopad-python/compare/v2.0.1...v2.0.2) (2025-12-08)
+
+
+### Bugfixes
+
+* **patch:** update dependency pytest to v9.0.2 ([#153](https://github.com/gopad/gopad-python/issues/153)) ([e06fc74](https://github.com/gopad/gopad-python/commit/e06fc74359811fe3c822163f5bc41032fc2f4630))
+
 ## [2.0.1](https://github.com/gopad/gopad-python/compare/v2.0.0...v2.0.1) (2025-12-01)
 
 
