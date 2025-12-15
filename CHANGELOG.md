@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.0.3](https://github.com/gopad/gopad-python/compare/v2.0.2...v2.0.3) (2025-12-15)
+
+
+### Bugfixes
+
+* **patch:** update dependency urllib3 to v2.6.1 ([#150](https://github.com/gopad/gopad-python/issues/150)) ([5b2e59f](https://github.com/gopad/gopad-python/commit/5b2e59f3371c7de3bd74809b30606e367b5b92dc))
+* **patch:** update dependency urllib3 to v2.6.2 ([#156](https://github.com/gopad/gopad-python/issues/156)) ([ba0febc](https://github.com/gopad/gopad-python/commit/ba0febc2238e131c587f15dc4a700c68d42e5b85))
+
 ## [2.0.2](https://github.com/gopad/gopad-python/compare/v2.0.1...v2.0.2) (2025-12-08)
 
 
