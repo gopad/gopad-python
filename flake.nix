@@ -57,7 +57,7 @@
               default = {
                 git-hooks = {
                   hooks = {
-                    nixfmt-rfc-style = {
+                    nixfmt = {
                       enable = true;
                     };
                   };
@@ -79,7 +79,7 @@
                   curl
                   jq
                   maven
-                  nixfmt-rfc-style
+                  nixfmt
                   poetry
                 ];
               };
