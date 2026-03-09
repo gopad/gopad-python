@@ -1,5 +1,23 @@
 # Changelog
 
+## [2.1.2](https://github.com/gopad/gopad-python/compare/v2.1.1...v2.1.2) (2026-03-09)
+
+### Dependencies
+
+* **patch:** update dependency types-python-dateutil to v2.9.0.20260302 ([#163](https://github.com/gopad/gopad-python/issues/163)) ([e031733](https://github.com/gopad/gopad-python/commit/e03173369b892cdb8fe3e851a62afa83294631d1))
+* **patch:** update dependency types-python-dateutil to v2.9.0.20260305 ([#164](https://github.com/gopad/gopad-python/issues/164)) ([b2d144c](https://github.com/gopad/gopad-python/commit/b2d144c57f9e1a72f53969936bbe8eea7141fe42))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([664fd43](https://github.com/gopad/gopad-python/commit/664fd43e5c926139479345a9303875bef72df11d))
+* **flake:** updated lockfile [skip ci] ([d2bae2e](https://github.com/gopad/gopad-python/commit/d2bae2e6b4c28c9e644e4b84ff9ca2a78a0a1676))
+* **flake:** updated lockfile [skip ci] ([cffc249](https://github.com/gopad/gopad-python/commit/cffc249121dd742cfdfc45bc7031ac9b115c5feb))
+* **flake:** updated lockfile [skip ci] ([26be4df](https://github.com/gopad/gopad-python/commit/26be4df306616bd1672c22efa7956c2f6dc3d3d7))
+* **flake:** updated lockfile [skip ci] ([267506a](https://github.com/gopad/gopad-python/commit/267506a9c60673a9fa51ab9ac06a43182f9e2cfb))
+* **flake:** updated lockfile [skip ci] ([b1bc509](https://github.com/gopad/gopad-python/commit/b1bc509cfb076908d757eb49ea76094ea926a19e))
+* **locks:** lock file maintenance ([118be90](https://github.com/gopad/gopad-python/commit/118be90928a3fc425859f374387ec57b8b827ed7))
+* replace nixfmt package ([47dcde4](https://github.com/gopad/gopad-python/commit/47dcde4b4e30e05f46035947c9bbb8e61574665d))
+
 ## [2.1.1](https://github.com/gopad/gopad-python/compare/v2.1.0...v2.1.1) (2026-01-26)
 
 ### Dependencies
