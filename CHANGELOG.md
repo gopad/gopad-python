@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.1.4](https://github.com/gopad/gopad-python/compare/v2.1.3...v2.1.4) (2026-03-30)
+
+### Dependencies
+
+* **patch:** update dependency build to v1.4.1 ([#169](https://github.com/gopad/gopad-python/issues/169)) ([81fd471](https://github.com/gopad/gopad-python/commit/81fd4710dde0721b8c72fb743b6b7c2634220a2b))
+* **patch:** update dependency build to v1.4.2 ([#170](https://github.com/gopad/gopad-python/issues/170)) ([cc01e57](https://github.com/gopad/gopad-python/commit/cc01e57a1eae2c2068693ed715c99033042e15b8))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([8a1c5a4](https://github.com/gopad/gopad-python/commit/8a1c5a402ad42947f100f88c555f6d126411bafc))
+* **locks:** lock file maintenance ([#171](https://github.com/gopad/gopad-python/issues/171)) ([e9d3d9f](https://github.com/gopad/gopad-python/commit/e9d3d9f46be6b4f0e00f89b82907926da95bbf7f))
+
 ## [2.1.3](https://github.com/gopad/gopad-python/compare/v2.1.2...v2.1.3) (2026-03-23)
 
 ### Dependencies
