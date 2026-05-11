@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.4.0](https://github.com/gopad/gopad-python/compare/v2.3.0...v2.4.0) (2026-05-11)
+
+### Dependencies
+
+* **minor:** update dependency urllib3 to v2.7.0 ([#186](https://github.com/gopad/gopad-python/issues/186)) ([e067f3c](https://github.com/gopad/gopad-python/commit/e067f3cd129daed4d6196790c1d25a91136ba110))
+* **patch:** update dependency pydantic to v2.13.4 ([#185](https://github.com/gopad/gopad-python/issues/185)) ([f9fe269](https://github.com/gopad/gopad-python/commit/f9fe2698406420c729f3320dadd21b733912e6e2))
+* **patch:** update dependency types-python-dateutil to v2.9.0.20260508 ([#187](https://github.com/gopad/gopad-python/issues/187)) ([203c61f](https://github.com/gopad/gopad-python/commit/203c61fbd13efd64ba1f841abac9df2383180ef3))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([9904b46](https://github.com/gopad/gopad-python/commit/9904b46ab49e35461c3fef7c5d1643b0e9c3f858))
+
 ## [2.3.0](https://github.com/gopad/gopad-python/compare/v2.2.1...v2.3.0) (2026-05-04)
 
 ### Dependencies
