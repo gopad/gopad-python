@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.4.1](https://github.com/gopad/gopad-python/compare/v2.4.0...v2.4.1) (2026-05-18)
+
+### Dependencies
+
+* **patch:** update dependency types-python-dateutil to v2.9.0.20260518 ([#188](https://github.com/gopad/gopad-python/issues/188)) ([8a073de](https://github.com/gopad/gopad-python/commit/8a073de7b5a9100924dc20e368039de085579858))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([204d38c](https://github.com/gopad/gopad-python/commit/204d38c9f770d1590d1d88e9f78352cd908a21b3))
+
 ## [2.4.0](https://github.com/gopad/gopad-python/compare/v2.3.0...v2.4.0) (2026-05-11)
 
 ### Dependencies
