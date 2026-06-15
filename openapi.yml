@@ -2,7 +2,7 @@
 library: urllib3
 packageName: gopad
 packageUrl: https://github.com/gopad/gopad-python
-packageVersion: 2.4.1
+packageVersion: 2.5.0
 projectName: gopad
 
 ...
