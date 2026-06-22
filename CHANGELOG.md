@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.5.1](https://github.com/gopad/gopad-python/compare/v2.5.0...v2.5.1) (2026-06-22)
+
+### Dependencies
+
+* **patch:** update dependency pytest to v9.1.1 ([#192](https://github.com/gopad/gopad-python/issues/192)) ([58034db](https://github.com/gopad/gopad-python/commit/58034db5df28a99d0f63261afb28d1d072849787))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([75aa6e5](https://github.com/gopad/gopad-python/commit/75aa6e5ca03bc0d409d268cfb945beb1b36b3079))
+
 ## [2.5.0](https://github.com/gopad/gopad-python/compare/v2.4.1...v2.5.0) (2026-06-15)
 
 ### Dependencies
