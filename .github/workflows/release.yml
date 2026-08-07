@@ -57,6 +57,7 @@ jobs:
       - name: Run releaser
         env:
           GITHUB_TOKEN: ${{ steps.token.outputs.token }}
+          PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
         run: semantic-release
 
       - name: Source rebase
