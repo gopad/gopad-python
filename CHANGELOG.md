@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.7.0](https://github.com/gopad/gopad-python/compare/v2.6.2...v2.7.0) (2026-08-10)
+
+### Features
+
+* restructure repo and build processes ([b33fb7b](https://github.com/gopad/gopad-python/commit/b33fb7baa6433345750e3639ea28610bb37076ce))
+
+### Dependencies
+
+* **patch:** update dependency python to v3.14.7 ([#200](https://github.com/gopad/gopad-python/issues/200)) ([e7a054f](https://github.com/gopad/gopad-python/commit/e7a054f5e2b07fe490901162292c8d4bd50332ce))
+* **patch:** update dependency types-python-dateutil to v2.9.0.20260807 ([#199](https://github.com/gopad/gopad-python/issues/199)) ([46325db](https://github.com/gopad/gopad-python/commit/46325dbaddcb1fe8704f127ce0fc467c52a743a6))
+
 ## [2.6.2](https://github.com/gopad/gopad-python/compare/v2.6.1...v2.6.2) (2026-07-20)
 
 ## [2.6.1](https://github.com/gopad/gopad-python/compare/v2.6.0...v2.6.1) (2026-07-13)
