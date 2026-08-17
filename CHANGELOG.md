@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.7.1](https://github.com/gopad/gopad-python/compare/v2.7.0...v2.7.1) (2026-08-17)
+
+### Dependencies
+
+* **patch:** update dependency pre-commit to v4.6.2 ([#203](https://github.com/gopad/gopad-python/issues/203)) ([e193105](https://github.com/gopad/gopad-python/commit/e193105bff4afa42d933b2c71cd6565f774cfccc))
+
 ## [2.7.0](https://github.com/gopad/gopad-python/compare/v2.6.2...v2.7.0) (2026-08-10)
 
 ### Features
