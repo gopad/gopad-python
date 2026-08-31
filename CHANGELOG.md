@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.8.0](https://github.com/gopad/gopad-python/compare/v2.7.1...v2.8.0) (2026-08-31)
+
+### Dependencies
+
+* **minor:** update dependency build to v1.6.0 ([#206](https://github.com/gopad/gopad-python/issues/206)) ([ba568ec](https://github.com/gopad/gopad-python/commit/ba568ec4cf0841adb1f774641962a8cc2d98740b))
+* **patch:** update dependency poetry to v2.4.2 ([#208](https://github.com/gopad/gopad-python/issues/208)) ([c0f8f96](https://github.com/gopad/gopad-python/commit/c0f8f96b4cb9b9ead7d41fc73eb78b26b7a53ac4))
+* **patch:** update dependency pydantic to v2.13.5 ([#207](https://github.com/gopad/gopad-python/issues/207)) ([ca821b5](https://github.com/gopad/gopad-python/commit/ca821b56bb3b4f1d9f883f6df7ae14b06dbf8b99))
+
 ## [2.7.1](https://github.com/gopad/gopad-python/compare/v2.7.0...v2.7.1) (2026-08-17)
 
 ### Dependencies
