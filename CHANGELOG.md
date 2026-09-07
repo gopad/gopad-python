@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.8.1](https://github.com/gopad/gopad-python/compare/v2.8.0...v2.8.1) (2026-09-07)
+
+### Dependencies
+
+* **patch:** update dependency poetry to v2.4.3 ([#210](https://github.com/gopad/gopad-python/issues/210)) ([5ee3b0b](https://github.com/gopad/gopad-python/commit/5ee3b0ba34c6e1d86e8d785c329b0821fe98f83b))
+
 ## [2.8.0](https://github.com/gopad/gopad-python/compare/v2.7.1...v2.8.0) (2026-08-31)
 
 ### Dependencies
