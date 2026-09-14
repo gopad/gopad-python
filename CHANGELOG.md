@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.8.2](https://github.com/gopad/gopad-python/compare/v2.8.1...v2.8.2) (2026-09-14)
+
+### Dependencies
+
+* **mise:** update dependency prek to v0.5.3 ([#212](https://github.com/gopad/gopad-python/issues/212)) ([5665c22](https://github.com/gopad/gopad-python/commit/5665c22a03f405120275a0b95efeb689af7a7a80))
+* **patch:** update dependency build to v1.6.1 ([#211](https://github.com/gopad/gopad-python/issues/211)) ([ea4e8da](https://github.com/gopad/gopad-python/commit/ea4e8da70897bc33e866eab53f1fe677dbc9a805))
+
 ## [2.8.1](https://github.com/gopad/gopad-python/compare/v2.8.0...v2.8.1) (2026-09-07)
 
 ### Dependencies
