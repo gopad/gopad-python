@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.9.0](https://github.com/gopad/gopad-python/compare/v2.8.2...v2.9.0) (2026-09-21)
+
+### Dependencies
+
+* **minor:** update dependency urllib3 to v2.8.0 ([#213](https://github.com/gopad/gopad-python/issues/213)) ([5ec9a06](https://github.com/gopad/gopad-python/commit/5ec9a060cce001ac7c3aea7c28f8f88e7d48d169))
+* **mise:** update dependency poetry to v2.5.0 ([#214](https://github.com/gopad/gopad-python/issues/214)) ([275ed40](https://github.com/gopad/gopad-python/commit/275ed406fc7b1a692c830ece152a0762f5527a25))
+* **mise:** update dependency poetry to v2.5.1 ([#215](https://github.com/gopad/gopad-python/issues/215)) ([096de32](https://github.com/gopad/gopad-python/commit/096de32e47eda1a4bc1b05ee32ab490bdc97c1f8))
+
 ## [2.8.2](https://github.com/gopad/gopad-python/compare/v2.8.1...v2.8.2) (2026-09-14)
 
 ### Dependencies
