@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.10.0](https://github.com/gopad/gopad-python/compare/v2.9.0...v2.10.0) (2026-10-12)
+
+### Dependencies
+
+* **minor:** update dependency pydantic to v2.14.0 ([#222](https://github.com/gopad/gopad-python/issues/222)) ([d185369](https://github.com/gopad/gopad-python/commit/d1853698fdeedd4f881c8a65c37d1d0c6752c7a5))
+* **mise:** update dependency prek to v0.5.4 ([#217](https://github.com/gopad/gopad-python/issues/217)) ([bc5d8e5](https://github.com/gopad/gopad-python/commit/bc5d8e52e770d45246ff442c94517d9cc2110542))
+* **mise:** update dependency prek to v0.5.5 ([#221](https://github.com/gopad/gopad-python/issues/221)) ([3d40c2e](https://github.com/gopad/gopad-python/commit/3d40c2e4e617db1177a12f49d7f9846afb38bbc0))
+* **mise:** update dependency python to v3.14.8 ([#219](https://github.com/gopad/gopad-python/issues/219)) ([47002cd](https://github.com/gopad/gopad-python/commit/47002cd41ac1f5eab2532360470b84599b3c93bc))
+* **mise:** update dependency python to v3.15.0 ([#223](https://github.com/gopad/gopad-python/issues/223)) ([553baa5](https://github.com/gopad/gopad-python/commit/553baa50eb518bf7f235ba14a78d9d5be8295114))
+* **patch:** update dependency pydantic to v2.14.1 ([#224](https://github.com/gopad/gopad-python/issues/224)) ([2dbff07](https://github.com/gopad/gopad-python/commit/2dbff07414f0e5e215deb92be59e1a30c77bd5f2))
+
 ## [2.9.0](https://github.com/gopad/gopad-python/compare/v2.8.2...v2.9.0) (2026-09-21)
 
 ### Dependencies
