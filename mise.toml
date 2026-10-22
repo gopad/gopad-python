@@ -6,7 +6,7 @@ maven = "3.9.16"
 node = "24"
 poetry = "2.5.1"
 prek = "0.5.7"
-python = "3.15.0"
+python = "3.15.1"
 
 [settings.python]
 compile = false
