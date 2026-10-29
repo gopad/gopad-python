@@ -51,7 +51,7 @@ typing-extensions = ">=4.7.1"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "==9.2.0"
-types-python-dateutil = "==2.9.0.20261021"
+types-python-dateutil = "==2.9.0.20261029"
 build = "==1.6.1"
 
 [tool.pytest.ini_options]
