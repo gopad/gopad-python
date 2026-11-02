@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.1.0](https://github.com/gopad/gopad-python/compare/v3.0.0...v3.1.0) (2026-11-02)
+
+### Dependencies
+
+* **minor:** update dependency pytest to v9.2.0 ([#234](https://github.com/gopad/gopad-python/issues/234)) ([1dcb523](https://github.com/gopad/gopad-python/commit/1dcb5234af21a310eda82a74fddc3ecf8ee584a7))
+* **mise:** update dependency prek to v0.5.9 ([#238](https://github.com/gopad/gopad-python/issues/238)) ([b208de1](https://github.com/gopad/gopad-python/commit/b208de12077e6cb3881d4daf3588ff424f6bbc4b))
+* **mise:** update dependency python to v3.15.2 ([#233](https://github.com/gopad/gopad-python/issues/233)) ([b235438](https://github.com/gopad/gopad-python/commit/b23543894d5f447b5bc2f1499ed6b6ab82246ecb))
+* **mise:** update node.js to v26 ([#235](https://github.com/gopad/gopad-python/issues/235)) ([02a4b12](https://github.com/gopad/gopad-python/commit/02a4b12b5101d629316a1a8871173c2646180faf))
+* **patch:** update dependency pydantic to v2.14.2 ([#237](https://github.com/gopad/gopad-python/issues/237)) ([2f4d8b8](https://github.com/gopad/gopad-python/commit/2f4d8b8faaf98ce32b78d8a2f5fcbe2790c9c57e))
+* **patch:** update dependency types-python-dateutil to v2.9.0.20261029 ([#236](https://github.com/gopad/gopad-python/issues/236)) ([a7bd26a](https://github.com/gopad/gopad-python/commit/a7bd26ab1fb38a3b9f6143017e430151c0a60771))
+
 ## [3.0.0](https://github.com/gopad/gopad-python/compare/v2.10.0...v3.0.0) (2026-10-26)
 
 ### Dependencies
