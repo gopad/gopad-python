@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.2](https://github.com/gopad/gopad-python/compare/v3.1.1...v3.1.2) (2026-11-16)
+
+### Dependencies
+
+* **mise:** update dependency prek to v0.5.11 ([#244](https://github.com/gopad/gopad-python/issues/244)) ([f8ef18b](https://github.com/gopad/gopad-python/commit/f8ef18bb0184a54a38c8c9cdcc251edd02cf03dc))
+* **patch:** update dependency types-python-dateutil to v2.9.0.20261116 ([#245](https://github.com/gopad/gopad-python/issues/245)) ([021ebf1](https://github.com/gopad/gopad-python/commit/021ebf1bb4e7b0ecdafd0dffb30d25ca0d3d60f1))
+
 ## [3.1.1](https://github.com/gopad/gopad-python/compare/v3.1.0...v3.1.1) (2026-11-09)
 
 ### Dependencies
