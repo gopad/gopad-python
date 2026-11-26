@@ -5,7 +5,7 @@ java = "26.0.2"
 maven = "3.9.16"
 node = "26"
 poetry = "2.5.2"
-prek = "0.5.11"
+prek = "0.5.12"
 python = "3.15.2"
 
 [settings.python]
